@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Activity Template</title>
+    <style>
+        /*
+        ============================================
+        QUICK ACTIVITY TEMPLATE (15-20 minutes)
+        ============================================
+
+        PERFECT FOR:
+        - Bell ringers / Do Now activities
+        - Exit tickets
+        - Quick reviews
+        - Early finisher activities
+        - Shortened class periods
+        - Quick checks for understanding
+
+        HOW TO CUSTOMIZE:
+        1. Change the title (line 6 and in the header below)
+        2. Replace the PLACEHOLDER TEXT with your content
+        3. Delete sections you don't need
+        4. Save with a new name (like "math-warmup-fractions.html")
+        5. Share with students!
+
+        KEEP IT SIMPLE:
+        - This is meant to be SHORT—don't add too much
+        - Focus on ONE concept or skill
+        - Make it doable in 15-20 minutes
+        - No complex instructions needed
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .quick-intro {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .quick-intro h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .activity-box {
+            background: #FFF9E6;
+            border: 3px solid #FFD700;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .activity-box h3 {
+            color: #F4A460;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .problem-box {
+            background: white;
+            border: 2px solid #667eea;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .problem-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .kind-reminder {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+
+        .kind-reminder strong {
+            color: #2e7d32;
+        }
+
+        .checklist {
+            background: #E3F2FD;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .checklist h3 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            color: #1976D2;
+        }
+
+        .timer-box {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .timer-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .done {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+
+        .done h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.6em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--
+        ═══════════════════════════════════════
+        HEADER SECTION
+        ═══════════════════════════════════════
+        Change the title and description below
+        -->
+        <div class="header">
+            <h1>🎯 YOUR ACTIVITY TITLE HERE</h1>
+            <p>Quick Activity | About 15-20 minutes</p>
+            <p>Subject | Grade Level</p>
+        </div>
+
+        <div class="content">
+            <!--
+            ═══════════════════════════════════════
+            INTRO SECTION (Optional)
+            ═══════════════════════════════════════
+            Give a quick welcome or context
+            Keep it to 1-2 sentences!
+            -->
+            <div class="quick-intro">
+                <h2>💙 Quick Task!</h2>
+                <p>REPLACE THIS: Today you're going to [brief description of what they'll do]. This should only take about 15-20 minutes. Let's get started!</p>
+            </div>
+
+            <!--
+            ═══════════════════════════════════════
+            TIME INDICATOR (Optional)
+            ═══════════════════════════════════════
+            Shows students how much time they have
+            Delete this section if you don't need it
+            -->
+            <div class="timer-box">
+                <h3>⏱️ Time: 15-20 Minutes</h3>
+                <p>Take your time—there's no rush! Work carefully and do your best.</p>
+            </div>
+
+            <!--
+            ═══════════════════════════════════════
+            MAIN ACTIVITY
+            ═══════════════════════════════════════
+            This is the core of your quick activity
+            Keep instructions clear and brief
+            -->
+            <div class="activity-box">
+                <h3>📝 Your Task</h3>
+                <p>REPLACE THIS: Clear, simple instructions for what students need to do. Be specific! For example:</p>
+                <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                    <li>Read the passage below</li>
+                    <li>Answer 5 questions</li>
+                    <li>Write your answers in complete sentences</li>
+                </ul>
+            </div>
+
+            <!--
+            ═══════════════════════════════════════
+            CONTENT/PROBLEMS/QUESTIONS
+            ═══════════════════════════════════════
+            Add your specific content here
+            Copy and paste this "problem-box" div for each question/problem
+            -->
+
+            <div class="problem-box">
+                <h4>Question 1:</h4>
+                <p>REPLACE WITH YOUR QUESTION OR PROBLEM</p>
+            </div>
+
+            <div class="problem-box">
+                <h4>Question 2:</h4>
+                <p>REPLACE WITH YOUR QUESTION OR PROBLEM</p>
+            </div>
+
+            <div class="problem-box">
+                <h4>Question 3:</h4>
+                <p>REPLACE WITH YOUR QUESTION OR PROBLEM</p>
+            </div>
+
+            <div class="problem-box">
+                <h4>Question 4:</h4>
+                <p>REPLACE WITH YOUR QUESTION OR PROBLEM</p>
+            </div>
+
+            <div class="problem-box">
+                <h4>Question 5:</h4>
+                <p>REPLACE WITH YOUR QUESTION OR PROBLEM</p>
+            </div>
+
+            <!--
+            Copy and paste the problem-box div above to add more questions!
+            Or delete extras if you only need a few.
+            -->
+
+            <!--
+            ═══════════════════════════════════════
+            KIND REMINDER (Optional but recommended!)
+            ═══════════════════════════════════════
+            Encouraging note to students
+            -->
+            <div class="kind-reminder">
+                <p><strong>💙 Remember:</strong> This is practice! If you don't know an answer, make your best attempt. Trying is what matters. If you get stuck, raise your hand or ask a neighbor! 🌟</p>
+            </div>
+
+            <!--
+            ═══════════════════════════════════════
+            CHECKLIST (Optional)
+            ═══════════════════════════════════════
+            Helps students make sure they're done
+            Delete this if you don't need it
+            -->
+            <div class="checklist">
+                <h3>✅ Before You Submit:</h3>
+                <ul>
+                    <li>I answered all questions</li>
+                    <li>I wrote in complete sentences (if required)</li>
+                    <li>I checked my spelling</li>
+                    <li>I showed my work (for math)</li>
+                    <li>I did my best!</li>
+                </ul>
+            </div>
+
+            <!--
+            ═══════════════════════════════════════
+            COMPLETION MESSAGE
+            ═══════════════════════════════════════
+            Celebrate their work!
+            -->
+            <div class="done">
+                <h2>🎉 You're Done!</h2>
+                <p>Great work! You completed today's quick activity.</p>
+                <p style="margin-top: 10px;"><strong>What to do now:</strong> REPLACE THIS - Turn it in, move to next activity, etc.</p>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    ═══════════════════════════════════════
+    CUSTOMIZATION NOTES
+    ═══════════════════════════════════════
+
+    SECTIONS YOU CAN DELETE:
+    - Timer box (if you don't want to show time)
+    - Checklist (if students don't need reminders)
+    - Kind reminder (though we recommend keeping it!)
+    - Any problem boxes you don't need
+
+    SECTIONS YOU CAN ADD MORE OF:
+    - Problem boxes (just copy and paste the div)
+    - Activity boxes (if you have multiple parts)
+
+    TIPS:
+    - Keep it simple! This is meant to be quick.
+    - Don't overload students—5-10 questions max
+    - Make sure instructions are crystal clear
+    - Always end on a positive, encouraging note
+
+    EXAMPLES OF GOOD QUICK ACTIVITIES:
+    - 5 math problems reviewing yesterday's concept
+    - Short reading passage with comprehension questions
+    - Quick vocabulary practice
+    - Bell ringer thought question
+    - Exit ticket reflection
+    - Review of key concepts before a test
+    - Practice with one specific skill
+
+    ═══════════════════════════════════════
+    -->
+</body>
+</html>

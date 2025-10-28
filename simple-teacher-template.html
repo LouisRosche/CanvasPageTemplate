@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Lesson Title Here</title>
+    <style>
+        /*
+        ============================================
+        SIMPLE TEACHER TEMPLATE
+        ============================================
+
+        HOW TO CUSTOMIZE THIS TEMPLATE:
+
+        1. Change the title above (line 6)
+        2. Scroll down and replace ALL CAPS TEXT with your content
+        3. Save your file with a new name
+        4. Share with students!
+
+        THAT'S IT! No coding needed.
+
+        TIPS:
+        - Keep the structure (don't delete the divs)
+        - Just replace the text inside them
+        - You can delete entire sections you don't need
+        - Preview in your browser as you work
+
+        ============================================
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: #f7fafc;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Header - The welcome section */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 1.15em;
+            opacity: 0.95;
+        }
+
+        /* Section - Each part of your lesson */
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: #5a67d8;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0 15px 25px;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+        }
+
+        /* Highlight box - For important information */
+        .highlight {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* Help box - For supportive messages */
+        .help {
+            background: #fff5eb;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* Activity box - For things students do */
+        .activity {
+            background: #ede9fe;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* Button - For links or actions */
+        .button {
+            display: inline-block;
+            background: #5a67d8;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.2s;
+        }
+
+        .button:hover {
+            background: #4c51bf;
+            transform: translateY(-1px);
+        }
+
+        /* Celebration - End of lesson */
+        .celebration {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .celebration h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        /* Mobile friendly */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.6em;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ============================================
+             HEADER SECTION
+             Change the title and description
+             ============================================ -->
+        <div class="header">
+            <h1>YOUR LESSON TITLE HERE</h1>
+            <p>Grade Level | Subject | About XX minutes</p>
+        </div>
+
+        <!-- ============================================
+             WELCOME SECTION
+             Greet your students warmly
+             ============================================ -->
+        <div class="section">
+            <h2>💙 Welcome!</h2>
+            <p>WRITE A WARM WELCOME MESSAGE HERE. Tell students what they'll learn and why it matters to them.</p>
+            <p>Example: "Today you're going to discover something amazing about [TOPIC]. By the end, you'll be able to [LEARNING GOAL]."</p>
+
+            <div class="help">
+                <p><strong>Remember:</strong> ADD ANY HELPFUL INFORMATION students need before starting. This could be materials needed, time expectations, or encouragement!</p>
+            </div>
+        </div>
+
+        <!-- ============================================
+             MAIN CONTENT SECTION 1
+             Your first main teaching point
+             Copy this section if you need more!
+             ============================================ -->
+        <div class="section">
+            <h2>SECTION TITLE (Example: The Main Idea)</h2>
+
+            <p>WRITE YOUR MAIN EXPLANATION HERE. Keep it clear and simple.</p>
+
+            <div class="highlight">
+                <p><strong>KEY POINT:</strong> Use this box to highlight the most important information students need to remember.</p>
+            </div>
+
+            <p>Continue with more explanation if needed. Break it into short paragraphs.</p>
+
+            <ul>
+                <li>You can add bullet points</li>
+                <li>To list important items</li>
+                <li>Keep them short and clear</li>
+            </ul>
+        </div>
+
+        <!-- ============================================
+             EXAMPLE SECTION
+             Show students a concrete example
+             ============================================ -->
+        <div class="section">
+            <h2>EXAMPLE SECTION TITLE (Example: Let's See an Example)</h2>
+
+            <p>WRITE YOUR EXAMPLE HERE. Students learn best from specific, concrete examples.</p>
+
+            <div class="highlight">
+                <p><strong>Example:</strong> [YOUR DETAILED EXAMPLE WITH STEP-BY-STEP EXPLANATION]</p>
+            </div>
+
+            <p>Explain what makes this example work and what students should notice.</p>
+        </div>
+
+        <!-- ============================================
+             ACTIVITY SECTION
+             What students will do
+             ============================================ -->
+        <div class="section">
+            <h2>YOUR ACTIVITY TITLE (Example: Now It's Your Turn!)</h2>
+
+            <p>EXPLAIN WHAT STUDENTS WILL DO. Be specific and clear.</p>
+
+            <div class="activity">
+                <h3>Your Task:</h3>
+                <ol>
+                    <li>First step - be specific about what to do</li>
+                    <li>Second step - include details</li>
+                    <li>Third step - tell them what success looks like</li>
+                </ol>
+            </div>
+
+            <div class="help">
+                <p><strong>Need help?</strong> TELL STUDENTS where to get help if they're stuck. This could be: re-reading above, asking a friend, watching a video, or contacting you.</p>
+            </div>
+
+            <!-- If you want a button/link -->
+            <p style="margin-top: 20px;">
+                <a href="YOUR-LINK-HERE" class="button">Button Text (Example: Submit Your Work)</a>
+            </p>
+        </div>
+
+        <!-- ============================================
+             OPTIONAL EXTENSION SECTION
+             For students who want to go deeper
+             You can delete this if you don't need it!
+             ============================================ -->
+        <div class="section">
+            <h2>🌟 Want to Go Deeper? (Optional!)</h2>
+
+            <p>ADD OPTIONAL EXTENSION ACTIVITIES HERE. Make it clear these are extras, not required.</p>
+
+            <div class="highlight">
+                <p><strong>Remember:</strong> These are bonus activities because you're curious! You've already learned what you need to learn. 🎉</p>
+            </div>
+        </div>
+
+        <!-- ============================================
+             CELEBRATION / CLOSING
+             End on a positive, encouraging note
+             ============================================ -->
+        <div class="celebration">
+            <h2>🎉 Great Work!</h2>
+            <p>WRITE AN ENCOURAGING CLOSING MESSAGE. Celebrate what students learned and accomplished.</p>
+            <p style="margin-top: 15px; font-size: 1.2em;">Keep being awesome! 🌟</p>
+        </div>
+
+    </div>
+
+    <!-- ============================================
+         YOU'RE DONE!
+
+         NEXT STEPS:
+         1. Preview this file in your browser
+         2. Make sure everything looks good
+         3. Save with a clear name like "math-fractions-lesson.html"
+         4. Share with students via:
+            - Google Classroom (upload as file)
+            - Email (attach the file)
+            - LMS (upload to your course)
+            - Print it out!
+
+         TIPS FOR SHARING:
+         - This is just ONE FILE - super easy to share!
+         - Students can open it in any web browser
+         - Works on computers, tablets, and phones
+         - No internet needed after downloading
+         - Students can't accidentally edit it
+
+         QUESTIONS? Check the Teacher Quick Start Guide!
+         ============================================ -->
+</body>
+</html>

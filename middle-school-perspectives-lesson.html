@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Different Perspectives - Middle School Social Studies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #6B8E23 0%, #8FBC8F 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6B8E23 0%, #8FBC8F 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .welcome {
+            background: #f8f9fa;
+            border-left: 5px solid #6B8E23;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .welcome h2 {
+            color: #6B8E23;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #6B8E23;
+        }
+
+        .story-box {
+            background: #FFF9E6;
+            border: 3px solid #F4A460;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-size: 1.05em;
+        }
+
+        .story-box h3 {
+            color: #D2691E;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .kind-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .kind-box strong {
+            color: #2e7d32;
+        }
+
+        .perspective-card {
+            background: white;
+            border: 3px solid #6B8E23;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .perspective-card h4 {
+            color: #6B8E23;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .perspective-card .character {
+            font-size: 2.5em;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .think-box {
+            background: #E3F2FD;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .think-box h3 {
+            color: #1565C0;
+            margin-bottom: 15px;
+        }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .compare-item {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #6B8E23;
+        }
+
+        .compare-item h4 {
+            color: #6B8E23;
+            margin-bottom: 10px;
+        }
+
+        .activity-box {
+            background: #FFF3E0;
+            border: 3px solid #FF9800;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .activity-box h3 {
+            color: #E65100;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .real-world-box {
+            background: #F3E5F5;
+            border: 3px solid #9C27B0;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .real-world-box h3 {
+            color: #6A1B9A;
+            margin-bottom: 15px;
+        }
+
+        .skill-building {
+            background: #E8EAF6;
+            border-left: 5px solid #3F51B5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .skill-building h3 {
+            color: #283593;
+            margin-bottom: 15px;
+        }
+
+        .skill-building ol {
+            margin-left: 25px;
+        }
+
+        .skill-building li {
+            margin: 10px 0;
+        }
+
+        .reflection {
+            background: #FAFAFA;
+            border: 2px dashed #666;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .reflection h3 {
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .compare-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👁️ Understanding Different Perspectives</h1>
+            <p>How can two people see the same thing differently?</p>
+            <p>Grade 7 Social Studies | About 40 minutes</p>
+        </div>
+
+        <div class="content">
+            <div class="welcome">
+                <h2>💙 Welcome to an Important Lesson</h2>
+                <p>Have you ever had a disagreement with a friend about what really happened during a situation? Or heard two people tell completely different versions of the same story? You're about to learn why this happens—and why understanding different perspectives is one of the most important skills you can develop.</p>
+
+                <p style="margin-top: 15px;"><strong>By the end of this lesson, you'll be able to:</strong></p>
+                <ul style="margin-left: 30px; margin-top: 10px;">
+                    <li>Explain what "perspective" means and why it matters</li>
+                    <li>Identify how background, experience, and values shape perspectives</li>
+                    <li>Analyze a situation from multiple viewpoints</li>
+                    <li>Apply perspective-taking to real-world situations</li>
+                </ul>
+
+                <p style="margin-top: 15px;"><strong>This skill will help you:</strong> Understand history better, have better conversations, resolve conflicts, and become a thoughtful citizen. Let's get started! 🌟</p>
+            </div>
+
+            <!-- SECTION 1: WHAT IS PERSPECTIVE -->
+            <div class="section">
+                <h2>🔍 What is Perspective?</h2>
+
+                <div class="key-point">
+                    <strong>Perspective:</strong> The way someone sees and understands a situation based on their experiences, background, values, and position.
+                </div>
+
+                <p><strong>Think of it this way:</strong> Imagine you're watching a soccer game. Your perspective changes depending on where you're sitting:</p>
+
+                <div class="compare-grid">
+                    <div class="compare-item">
+                        <h4>👤 Player on the Field</h4>
+                        <p>Focused on the action right in front of them, feeling the physical intensity, hearing teammates shout, making split-second decisions</p>
+                    </div>
+
+                    <div class="compare-item">
+                        <h4>🦅 Fan in the Stands</h4>
+                        <p>Can see the whole field, notices team strategy, emotionally invested in one team winning, sees patterns the players might miss</p>
+                    </div>
+
+                    <div class="compare-item">
+                        <h4>⚖️ Referee</h4>
+                        <p>Looking for rule violations, trying to be fair to both sides, focused on safety, under pressure to make correct calls</p>
+                    </div>
+
+                    <div class="compare-item">
+                        <h4>📹 TV Viewer at Home</h4>
+                        <p>Seeing camera angles, hearing commentator analysis, able to replay and slow-motion, more detached from the emotion</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 20px;">Same game. Same events. <strong>Four completely different perspectives.</strong> None of them are "wrong"—they're just different based on <em>where that person is standing</em> (literally and figuratively).</p>
+
+                <div class="kind-box">
+                    <p><strong>💙 Here's the Key:</strong> Most conflicts happen because people don't realize they're looking at the same situation from different perspectives. When you understand that, you can communicate better and solve problems more effectively! 🤝</p>
+                </div>
+            </div>
+
+            <!-- SECTION 2: A STORY WITH MULTIPLE PERSPECTIVES -->
+            <div class="section">
+                <h2>📖 The Cafeteria Incident: One Event, Multiple Stories</h2>
+
+                <p>Let's look at a situation that happened at school. As you read each perspective, notice how the <em>same events</em> get described differently.</p>
+
+                <div class="story-box">
+                    <h3>🎬 What Happened (Observable Facts):</h3>
+                    <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                        <li>Alex was walking through the cafeteria carrying a lunch tray</li>
+                        <li>Jordan was sitting at a table with friends</li>
+                        <li>Alex tripped</li>
+                        <li>Alex's tray spilled onto Jordan</li>
+                        <li>Jordan stood up quickly and yelled something</li>
+                        <li>A teacher came over</li>
+                    </ul>
+                </div>
+
+                <p style="font-size: 1.1em; margin: 20px 0; font-weight: bold;">Now, let's see how FOUR different people tell this story:</p>
+
+                <!-- Alex's Perspective -->
+                <div class="perspective-card">
+                    <div class="character">🧑‍🦰</div>
+                    <h4>Alex's Perspective:</h4>
+                    <p><em>"I was walking to my table when someone's backpack was sticking out into the aisle. I didn't see it and tripped over it. I tried to catch my balance but couldn't, and my tray went flying right onto Jordan. I felt TERRIBLE! I immediately said 'I'm so sorry!' but Jordan stood up and started yelling at me in front of everyone like I did it on purpose! I was already embarrassed about tripping, and then Jordan made it so much worse. I was close to tears. It was an accident!"</em></p>
+
+                    <p style="margin-top: 15px; background: #f0f0f0; padding: 15px; border-radius: 5px;"><strong>Alex's feelings:</strong> Embarrassed, apologetic, hurt that Jordan yelled, defensive</p>
+                </div>
+
+                <!-- Jordan's Perspective -->
+                <div class="perspective-card">
+                    <div class="character">🧑‍🦱</div>
+                    <h4>Jordan's Perspective:</h4>
+                    <p><em>"I was sitting with my friends having lunch when suddenly someone dumped their entire tray on me! Food all over my shirt, milk dripping down my back. It was disgusting! I jumped up—of course I did! And I'll admit, I yelled something. I was shocked and mad! This is my favorite shirt, and now it's ruined. Plus, last week Alex bumped into me in the hallway and didn't apologize, so it felt like a pattern. Everyone was staring at me looking ridiculous. Yeah, I overreacted a little, but come on—wouldn't you?"</em></p>
+
+                    <p style="margin-top: 15px; background: #f0f0f0; padding: 15px; border-radius: 5px;"><strong>Jordan's feelings:</strong> Shocked, angry, embarrassed, suspicious it might have been intentional</p>
+                </div>
+
+                <!-- Friend's Perspective -->
+                <div class="perspective-card">
+                    <div class="character">🧑‍🎤</div>
+                    <h4>Sam's Perspective (Jordan's Friend at the Table):</h4>
+                    <p><em>"Honestly, Jordan totally overreacted. It was obviously an accident—Alex clearly tripped. But Jordan has been stressed lately because of stuff at home, and has been kind of snappy all week. I saw Alex try to apologize, but Jordan was too mad to listen. I felt bad for both of them, actually. I wish Jordan had calmed down before yelling. But I also know Jordan isn't usually like this, so something else must be going on."</em></p>
+
+                    <p style="margin-top: 15px; background: #f0f0f0; padding: 15px; border-radius: 5px;"><strong>Sam's feelings:</strong> Empathy for both, concern for Jordan, awkward about being in the middle</p>
+                </div>
+
+                <!-- Teacher's Perspective -->
+                <div class="perspective-card">
+                    <div class="character">👨‍🏫</div>
+                    <h4>Teacher's Perspective:</h4>
+                    <p><em>"I was on cafeteria duty and saw some commotion. By the time I got there, I heard Jordan yelling and saw Alex looking upset with an empty tray. I didn't see what actually happened, but both students seemed really worked up. I need to figure out if this was an accident or if there's been ongoing conflict between them. My job is to make sure both students feel heard and help them resolve this appropriately. I also need to think about whether someone needs a clean shirt and if any bullying is happening."</em></p>
+
+                    <p style="margin-top: 15px; background: #f0f0f0; padding: 15px; border-radius: 5px;"><strong>Teacher's concerns:</strong> Student safety, conflict resolution, possible bullying, fair consequences</p>
+                </div>
+
+                <div class="think-box">
+                    <h3>🤔 Think About It:</h3>
+                    <ul style="margin-left: 25px; margin-top: 10px;">
+                        <li>Which person do you think is "right"? Or is it more complicated than that?</li>
+                        <li>What information does each person have that others don't?</li>
+                        <li>How do each person's feelings affect how they tell the story?</li>
+                        <li>If you were the teacher, what would you need to know to handle this fairly?</li>
+                    </ul>
+                </div>
+
+                <div class="kind-box">
+                    <p><strong>💙 Here's What Makes This Complicated:</strong> Everyone is being <em>honest</em> about their experience. Alex really did trip by accident. Jordan really was shocked and angry. Sam really does know context about Jordan's stress. The teacher really is trying to be fair. <strong>Multiple things can be true at the same time!</strong> 🌈</p>
+                </div>
+            </div>
+
+            <!-- SECTION 3: WHAT SHAPES PERSPECTIVE -->
+            <div class="section">
+                <h2>🧩 What Shapes Our Perspective?</h2>
+
+                <p>People see things differently because of many factors. Let's explore what influences how we view situations:</p>
+
+                <div class="compare-item" style="margin: 20px 0;">
+                    <h4>1. 🎒 Personal Experience</h4>
+                    <p><strong>Example:</strong> If you've been bullied before, you might interpret someone's actions as mean even if they didn't intend harm. If you've never experienced that, you might think someone is "overreacting."</p>
+                    <p style="margin-top: 10px;"><em>In our story: Jordan remembered Alex bumping into them before, which affected how Jordan interpreted this incident.</em></p>
+                </div>
+
+                <div class="compare-item" style="margin: 20px 0;">
+                    <h4>2. 😊 Emotions</h4>
+                    <p><strong>Example:</strong> When you're already stressed or upset, small things feel bigger. When you're in a good mood, you're more likely to give someone the benefit of the doubt.</p>
+                    <p style="margin-top: 10px;"><em>In our story: Jordan was already having a rough week, which made the reaction more intense.</em></p>
+                </div>
+
+                <div class="compare-item" style="margin: 20px 0;">
+                    <h4>3. 🎯 What You're Focused On</h4>
+                    <p><strong>Example:</strong> If you're worried about being on time, you notice every slow person in the hallway. If you're relaxed, you don't even register it.</p>
+                    <p style="margin-top: 10px;"><em>In our story: Alex was focused on embarrassment from tripping; Jordan was focused on the ruined shirt.</em></p>
+                </div>
+
+                <div class="compare-item" style="margin: 20px 0;">
+                    <h4>4. 📚 Knowledge and Information</h4>
+                    <p><strong>Example:</strong> If you know the full context of a situation, you understand it differently than someone who only saw part of it.</p>
+                    <p style="margin-top: 10px;"><em>In our story: Sam knew about Jordan's stress; Alex and the teacher didn't have that information.</em></p>
+                </div>
+
+                <div class="compare-item" style="margin: 20px 0;">
+                    <h4>5. ⭐ Values and Beliefs</h4>
+                    <p><strong>Example:</strong> If you value honesty above all else, you might think someone should speak bluntly. If you value kindness first, you might think that same person was rude.</p>
+                    <p style="margin-top: 10px;"><em>In our story: The teacher values fairness and needs to hear all sides; Alex values intent (it was an accident); Jordan values respect (feeling like Alex should be more careful).</em></p>
+                </div>
+
+                <div class="compare-item" style="margin: 20px 0;">
+                    <h4>6. 👥 Identity and Background</h4>
+                    <p><strong>Example:</strong> Your culture, family, community, and personal history shape how you interpret situations. Something that seems normal to one person might seem strange or rude to another based on different cultural norms.</p>
+                    <p style="margin-top: 10px;"><em>Example: In some cultures, direct eye contact shows respect; in others, it's considered disrespectful to authority figures. Same action, different meanings.</em></p>
+                </div>
+
+                <div class="key-point">
+                    ⚠️ Understanding that perspective is shaped by all these factors doesn't mean "anything goes" or "everyone's right." It means understanding <em>why</em> people see things differently is the first step to communication and problem-solving.
+                </div>
+            </div>
+
+            <!-- SECTION 4: WHY IT MATTERS -->
+            <div class="section">
+                <h2>🌍 Why Understanding Perspective Matters</h2>
+
+                <div class="real-world-box">
+                    <h3>In History Class:</h3>
+                    <p>When you study historical events, you're often getting one perspective—usually the "winners" or those in power. Understanding perspective helps you ask: <em>"Whose story is missing? How did different groups experience this event?"</em></p>
+                    <p style="margin-top: 10px;"><strong>Example:</strong> The story of westward expansion in the US looks very different from the perspective of European settlers versus Native Americans. Both perspectives are part of the complete history.</p>
+                </div>
+
+                <div class="real-world-box">
+                    <h3>In Current Events:</h3>
+                    <p>When you read news or social media, you're getting a specific perspective. Understanding this helps you ask: <em>"Who is telling this story? What might they emphasize or leave out? What would other people involved say?"</em></p>
+                    <p style="margin-top: 10px;"><strong>Example:</strong> A news story about a school policy change will sound different depending on whether a student, parent, teacher, or administrator is telling it.</p>
+                </div>
+
+                <div class="real-world-box">
+                    <h3>In Your Relationships:</h3>
+                    <p>When you have a conflict with a friend or family member, understanding perspective helps you see that you can <em>both</em> be feeling hurt or misunderstood, even if only one person's feelings seem "logical" to you.</p>
+                    <p style="margin-top: 10px;"><strong>Example:</strong> You think your friend is ignoring you. Your friend thinks you've been distant. You're both seeing the same pattern from different sides.</p>
+                </div>
+
+                <div class="real-world-box">
+                    <h3>In Citizenship:</h3>
+                    <p>Major debates about laws, policies, and community issues involve people with genuinely different perspectives. Understanding this helps you have better conversations and make more informed decisions.</p>
+                    <p style="margin-top: 10px;"><strong>Example:</strong> People disagree about school dress codes. Students might focus on self-expression and comfort. Administrators might focus on learning environment and equity. Both care about students—they just prioritize different aspects.</p>
+                </div>
+            </div>
+
+            <!-- SECTION 5: BUILDING THE SKILL -->
+            <div class="section">
+                <h2>🛠️ How to Practice Perspective-Taking</h2>
+
+                <div class="skill-building">
+                    <h3>6 Steps to Understanding Another Perspective:</h3>
+                    <ol>
+                        <li><strong>Pause your own reaction.</strong> Notice your feelings, but don't let them completely take over. (This is hard! But worth practicing.)</li>
+                        <li><strong>Listen or observe carefully.</strong> What is the other person actually saying? What do they seem to be feeling?</li>
+                        <li><strong>Ask questions.</strong> "Can you help me understand why you see it that way?" or "What am I missing?"</li>
+                        <li><strong>Consider their context.</strong> What experiences, information, or feelings might be shaping their view?</li>
+                        <li><strong>Look for what's true from their angle.</strong> Even if you disagree overall, can you find any part of their perspective that makes sense?</li>
+                        <li><strong>Explain your own perspective clearly.</strong> Help them understand your view too. This is a two-way process!</li>
+                    </ol>
+                </div>
+
+                <div class="kind-box">
+                    <p><strong>💙 Important Note:</strong> Understanding someone's perspective doesn't mean you have to <em>agree</em> with them! You can think someone is wrong while still understanding why they think the way they do. In fact, understanding their perspective often helps you explain your own view more effectively! 🗣️</p>
+                </div>
+            </div>
+
+            <!-- SECTION 6: PRACTICE ACTIVITY -->
+            <div class="section">
+                <h2>🎯 Your Turn: Practice Perspective-Taking</h2>
+
+                <div class="activity-box">
+                    <h3>Scenario: The Group Project</h3>
+                    <p>You're in a group of four working on a big project due next week. Here's what each person is experiencing:</p>
+
+                    <div style="margin: 20px 0; padding: 20px; background: white; border-radius: 8px;">
+                        <p><strong>Riley:</strong> Frustrated because they've done most of the work and others aren't contributing equally.</p>
+                        <p style="margin-top: 10px;"><strong>Casey:</strong> Overwhelmed with problems at home and trying their best, but can't focus as much as usual.</p>
+                        <p style="margin-top: 10px;"><strong>Morgan:</strong> Confused about their role because Riley took over and didn't ask for input.</p>
+                        <p style="margin-top: 10px;"><strong>Avery:</strong> Thinks everyone is making a big deal over nothing and the project will be fine.</p>
+                    </div>
+
+                    <p style="font-weight: bold; margin-top: 20px;">Choose ONE of these tasks:</p>
+
+                    <div class="compare-grid" style="margin-top: 15px;">
+                        <div class="compare-item">
+                            <h4>Task A: Analyze</h4>
+                            <p>Write a paragraph for each person explaining what factors might be shaping their perspective. Use the 6 factors we learned about.</p>
+                        </div>
+
+                        <div class="compare-item">
+                            <h4>Task B: Solve</h4>
+                            <p>Write a short script of how the group could have a conversation where everyone's perspective is heard. Use the 6 steps for perspective-taking.</p>
+                        </div>
+
+                        <div class="compare-item">
+                            <h4>Task C: Connect</h4>
+                            <p>Describe a real situation where you've been in a similar group dynamic. How did different perspectives play out? What would you do differently now?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reflection">
+                    <h3>✍️ Reflection Questions (Think or Write):</h3>
+                    <ul style="margin-left: 25px; margin-top: 10px; line-height: 2;">
+                        <li>When is it hardest for you to see someone else's perspective? Why?</li>
+                        <li>Think of a time when someone misunderstood your perspective. How did it feel? What would have helped?</li>
+                        <li>How can understanding perspective help reduce conflict?</li>
+                        <li>Can someone's perspective be wrong? What's the difference between perspective and facts?</li>
+                    </ul>
+                </div>
+
+                <div class="kind-box">
+                    <p><strong>💙 Need Some Help?</strong> That's completely fine! These scenarios are complex—that's what makes them good practice! You can:</p>
+                    <ul style="margin-left: 25px; margin-top: 10px;">
+                        <li>Talk it through with a classmate</li>
+                        <li>Ask your teacher for another example</li>
+                        <li>Start by focusing on just two perspectives if four feels like too much</li>
+                        <li>Use the sentence starter: "From [person's] perspective, this situation looks like... because..."</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CLOSING -->
+            <div class="welcome">
+                <h2>🎉 You've Learned a Crucial Skill!</h2>
+                <p>Understanding perspective is one of the most important skills for navigating school, relationships, work, and citizenship. When you can see a situation from multiple angles, you:</p>
+
+                <ul style="margin-left: 30px; margin-top: 15px; line-height: 2;">
+                    <li>✅ Communicate more effectively</li>
+                    <li>✅ Resolve conflicts better</li>
+                    <li>✅ Understand history and current events more completely</li>
+                    <li>✅ Make more informed decisions</li>
+                    <li>✅ Build stronger relationships</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>Keep practicing!</strong> Every day gives you opportunities to pause and ask: <em>"What might this look like from their perspective?"</em> 🌟</p>
+
+                <p style="margin-top: 15px; font-weight: bold; color: #6B8E23;">Remember: You don't have to agree with everyone, but understanding where they're coming from makes you a better thinker, communicator, and human. Great work today! 💪</p>
+            </div>
+
+            <div class="kind-box" style="margin-top: 30px;">
+                <p><strong>💬 Want to Talk More?</strong></p>
+                <p>This topic can bring up lots of thoughts and questions! If something in this lesson made you think of a situation in your own life, or if you have questions about how to apply this skill, talk to your teacher. These conversations are how we grow! 🌱</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
