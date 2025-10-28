@@ -148,7 +148,7 @@ This short document explains the philosophy behind everything. It shows:
 ### Core Philosophy
 | File | What It Is | Read When |
 |------|------------|-----------|
-| `VALUES_FIRST_README.md` | Main overview | First! |
+| `README.md` | Main overview | First! |
 | `CORE_VALUES.md` | Values foundation | First! |
 | `GETTING_STARTED.md` | This file! | First! |
 
@@ -173,6 +173,8 @@ This short document explains the philosophy behind everything. It shows:
 |------|----------------|-----------|
 | `DIFFERENTIATION_GUIDE.md` | How to do 🟢🟡🔴 levels | Before implementing choice |
 | `KIND_ASSESSMENT_GUIDE.md` | Testing without anxiety | Before creating assessments |
+| `EXAMPLE_RUBRICS.md` | Sample rubrics | When designing assessments |
+| `FAQ.md` | Common questions answered | When you have questions! |
 | `TEACHER_QUICK_START_GUIDE.md` | Complete how-to | When you want full details |
 | `TROUBLESHOOTING_GUIDE.md` | Common problems | When something goes wrong |
 
@@ -187,6 +189,7 @@ This short document explains the philosophy behind everything. It shows:
 ### Technical/Background
 | File | What It Is | Read When |
 |------|------------|-----------|
+| `EVIDENCE_BASE.md` | Research & citations | Want to know why this works |
 | `TOOL_SUITE_PROPOSAL.md` | Original vision | Curious about the full scope |
 | `MULTI-SUBJECT_EXAMPLES.md` | More examples | Want to see variety |
 | `EVALUATION_AUDIT.md` | Honest assessment | Want to know limitations |
@@ -222,7 +225,7 @@ This short document explains the philosophy behind everything. It shows:
 ### I'm a Teacher Who's Tech-Comfortable
 
 **Day 1 (45 minutes):**
-1. Skim `VALUES_FIRST_README.md`
+1. Skim `README.md`
 2. Read `CORE_VALUES.md`
 3. Open 3-4 examples
 4. Start customizing a real lesson
@@ -244,7 +247,7 @@ This short document explains the philosophy behind everything. It shows:
 ### I'm a Curriculum Coordinator/Instructional Coach
 
 **Preparation:**
-1. Read `VALUES_FIRST_README.md`
+1. Read `README.md`
 2. Read `CORE_VALUES.md`
 3. Review all example lessons
 4. Read `IMPLEMENTATION_TOOLKIT.md`
@@ -266,7 +269,7 @@ This short document explains the philosophy behind everything. It shows:
 ### I'm an Administrator
 
 **First Hour:**
-1. Read `VALUES_FIRST_README.md`
+1. Read `README.md`
 2. Open 2-3 example lessons
 3. Read administrator one-pager in `IMPLEMENTATION_TOOLKIT.md`
 
