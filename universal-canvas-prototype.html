@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Canvas Learning Suite - Prototype</title>
+    <style>
+        /* ========================================
+           UNIVERSAL VARIABLES - Easy Customization
+           ======================================== */
+        :root {
+            /* Color Schemes - Switch by changing data-theme attribute */
+            --primary-color: #667EEA;
+            --secondary-color: #764BA2;
+            --accent-color: #F093FB;
+            --success-color: #52C75A;
+            --warning-color: #F39C12;
+            --danger-color: #E74C3C;
+            --info-color: #3498DB;
+
+            /* Neutral Colors */
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --text-light: #6c757d;
+            --bg-primary: #ffffff;
+            --bg-secondary: #F8F9FA;
+            --bg-accent: #F7FAFC;
+            --border-color: #E2E8F0;
+
+            /* Typography */
+            --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: inherit;
+            --font-size-base: 16px;
+            --line-height-base: 1.6;
+
+            /* Spacing */
+            --spacing-xs: 5px;
+            --spacing-sm: 10px;
+            --spacing-md: 15px;
+            --spacing-lg: 20px;
+            --spacing-xl: 30px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Subject-Specific Color Themes */
+        [data-theme="science"] {
+            --primary-color: #3498DB;
+            --secondary-color: #2980B9;
+            --accent-color: #5DADE2;
+        }
+
+        [data-theme="math"] {
+            --primary-color: #F39C12;
+            --secondary-color: #E67E22;
+            --accent-color: #F5B041;
+        }
+
+        [data-theme="ela"] {
+            --primary-color: #9B59B6;
+            --secondary-color: #8E44AD;
+            --accent-color: #BB8FCE;
+        }
+
+        [data-theme="social-studies"] {
+            --primary-color: #27AE60;
+            --secondary-color: #229954;
+            --accent-color: #52BE80;
+        }
+
+        [data-theme="arts"] {
+            --primary-color: #E74C3C;
+            --secondary-color: #C0392B;
+            --accent-color: #EC7063;
+        }
+
+        /* Accessibility Modes */
+        [data-accessibility="high-contrast"] {
+            --text-primary: #000000;
+            --text-secondary: #000000;
+            --bg-primary: #ffffff;
+            --border-color: #000000;
+        }
+
+        [data-font-size="large"] {
+            --font-size-base: 18px;
+        }
+
+        [data-font-size="extra-large"] {
+            --font-size-base: 20px;
+        }
+
+        /* ========================================
+           GLOBAL STYLES
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-base);
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* ========================================
+           CONFIGURATION PANEL
+           ======================================== */
+        .config-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: var(--spacing-lg);
+        }
+
+        .config-panel.open {
+            right: 0;
+        }
+
+        .config-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .config-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .config-section {
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .config-section:last-child {
+            border-bottom: none;
+        }
+
+        .config-section h3 {
+            font-size: 1.2em;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .config-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .config-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
+
+        .config-group input[type="text"],
+        .config-group input[type="number"],
+        .config-group select,
+        .config-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 0.95em;
+            font-family: inherit;
+        }
+
+        .config-group input:focus,
+        .config-group select:focus,
+        .config-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .config-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: var(--spacing-sm);
+        }
+
+        .color-scheme-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+
+        .color-scheme-option {
+            padding: var(--spacing-md);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .color-scheme-option:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .color-scheme-option.selected {
+            border-color: var(--primary-color);
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ========================================
+           COMPONENT LIBRARY SHOWCASE
+           ======================================== */
+        .showcase {
+            padding: var(--spacing-xl);
+        }
+
+        /* Header Component */
+        .component-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .component-header h1 {
+            font-size: 2.5em;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .component-header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        /* Standards Component */
+        .component-standards {
+            background: white;
+            border-left: 5px solid var(--primary-color);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .component-standards h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.4em;
+        }
+
+        .standard-item {
+            background: var(--bg-accent);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .standard-code {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .standard-description {
+            font-size: 0.95em;
+            color: var(--text-secondary);
+        }
+
+        /* Learning Targets Component */
+        .component-targets {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 25px 20px;
+            margin-bottom: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .component-targets h2 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.6em;
+        }
+
+        .target-item {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-sm);
+            border-left: 4px solid var(--success-color);
+            text-align: left;
+        }
+
+        .target-title {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .target-description {
+            font-size: 0.95em;
+            color: var(--text-secondary);
+        }
+
+        /* Activity Station Component */
+        .component-station {
+            background: white;
+            border: 3px solid var(--info-color);
+            padding: 0;
+            margin-bottom: var(--spacing-xl);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .station-header {
+            background: linear-gradient(135deg, var(--info-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 15px 20px;
+        }
+
+        .station-header h3 {
+            margin: 0;
+            font-size: 1.4em;
+        }
+
+        .station-meta {
+            margin-top: 8px;
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+
+        .station-body {
+            padding: var(--spacing-lg);
+        }
+
+        .station-mission {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--info-color);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border-radius: var(--radius-sm);
+        }
+
+        /* Differentiation Component */
+        .differentiation-tabs {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .diff-tab {
+            flex: 1;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .diff-tab:hover {
+            border-color: var(--primary-color);
+        }
+
+        .diff-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .diff-tab.foundations { border-color: #52C75A; }
+        .diff-tab.target { border-color: #F39C12; }
+        .diff-tab.extension { border-color: #E74C3C; }
+
+        .diff-tab.foundations.active { background: #52C75A; }
+        .diff-tab.target.active { background: #F39C12; }
+        .diff-tab.extension.active { background: #E74C3C; }
+
+        .diff-content {
+            display: none;
+            padding: var(--spacing-md);
+            background: var(--bg-accent);
+            border-radius: var(--radius-sm);
+        }
+
+        .diff-content.active {
+            display: block;
+        }
+
+        /* Navigation Component */
+        .component-nav {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .component-nav h3 {
+            color: white;
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Vocabulary Component */
+        .component-vocab {
+            background: white;
+            border: 2px solid var(--secondary-color);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border-radius: var(--radius-md);
+        }
+
+        .vocab-toggle {
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--secondary-color);
+            padding: var(--spacing-sm) 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vocab-content {
+            margin-top: var(--spacing-md);
+        }
+
+        .vocab-item {
+            background: var(--bg-accent);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-sm);
+            border-left: 4px solid var(--info-color);
+        }
+
+        .vocab-term {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .vocab-definition {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .vocab-example {
+            font-size: 0.85em;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Progress Tracker Component */
+        .component-progress {
+            position: sticky;
+            top: 20px;
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .progress-header {
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .progress-bar-container {
+            background: var(--bg-secondary);
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--success-color), var(--primary-color));
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.85em;
+        }
+
+        .progress-items {
+            list-style: none;
+        }
+
+        .progress-item {
+            padding: var(--spacing-xs) 0;
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+        }
+
+        .progress-item input[type="checkbox"] {
+            margin-right: var(--spacing-sm);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .config-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .component-header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .color-scheme-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .config-toggle,
+            .config-panel,
+            .component-nav,
+            .component-progress {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            .component-station {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body data-theme="science" data-accessibility="standard" data-font-size="normal">
+
+    <!-- Configuration Toggle Button -->
+    <button class="config-toggle" onclick="toggleConfig()">⚙️ Customize This Page</button>
+
+    <!-- Configuration Panel -->
+    <div class="config-panel" id="configPanel">
+        <h2 style="margin-bottom: 20px; color: var(--primary-color);">📝 Quick Configuration</h2>
+
+        <div class="config-section">
+            <h3>1. Basic Information</h3>
+
+            <div class="config-group">
+                <label for="subject">Subject</label>
+                <select id="subject" onchange="updateTheme(this.value)">
+                    <option value="science">Science</option>
+                    <option value="math">Mathematics</option>
+                    <option value="ela">English Language Arts</option>
+                    <option value="social-studies">Social Studies</option>
+                    <option value="arts">Arts</option>
+                </select>
+            </div>
+
+            <div class="config-group">
+                <label for="grade">Grade Level</label>
+                <select id="grade">
+                    <option>6th Grade</option>
+                    <option>7th Grade</option>
+                    <option>8th Grade</option>
+                    <option>9th Grade</option>
+                    <option>10th Grade</option>
+                    <option>11th Grade</option>
+                    <option>12th Grade</option>
+                </select>
+            </div>
+
+            <div class="config-group">
+                <label for="topic">Unit/Topic</label>
+                <input type="text" id="topic" placeholder="e.g., Energy in Collisions">
+            </div>
+
+            <div class="config-group">
+                <label for="teacher">Teacher Name</label>
+                <input type="text" id="teacher" placeholder="e.g., Ms. Smith">
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h3>2. Lesson Structure</h3>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="include-hook" checked>
+                <label for="include-hook">Opening Hook/Phenomenon</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="include-preassess" checked>
+                <label for="include-preassess">Pre-Assessment</label>
+            </div>
+
+            <div class="config-group">
+                <label for="num-stations">Number of Learning Stations</label>
+                <input type="number" id="num-stations" min="1" max="10" value="3">
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="include-exit" checked>
+                <label for="include-exit">Exit Ticket</label>
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h3>3. Features</h3>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="feature-vocab" checked>
+                <label for="feature-vocab">Vocabulary Glossary</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="feature-diff" checked>
+                <label for="feature-diff">Differentiation Options</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="feature-progress" checked>
+                <label for="feature-progress">Progress Tracker</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="feature-help">
+                <label for="feature-help">Help Resources</label>
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h3>4. Accessibility</h3>
+
+            <div class="config-group">
+                <label for="font-size">Font Size</label>
+                <select id="font-size" onchange="updateFontSize(this.value)">
+                    <option value="normal">Normal</option>
+                    <option value="large">Large</option>
+                    <option value="extra-large">Extra Large</option>
+                </select>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="high-contrast" onchange="toggleHighContrast(this.checked)">
+                <label for="high-contrast">High Contrast Mode</label>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-secondary" onclick="resetConfig()">Reset</button>
+            <button class="btn btn-primary" onclick="applyConfig()">Apply</button>
+        </div>
+
+        <div class="button-group" style="margin-top: 10px;">
+            <button class="btn btn-secondary" onclick="exportHTML()">💾 Export HTML</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="showcase">
+
+            <!-- Progress Tracker -->
+            <div class="component-progress">
+                <div class="progress-header">📊 Your Progress</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar" style="width: 0%;">0%</div>
+                </div>
+                <ul class="progress-items">
+                    <li class="progress-item">
+                        <input type="checkbox" onchange="updateProgress()"> Getting Started
+                    </li>
+                    <li class="progress-item">
+                        <input type="checkbox" onchange="updateProgress()"> Station 1
+                    </li>
+                    <li class="progress-item">
+                        <input type="checkbox" onchange="updateProgress()"> Station 2
+                    </li>
+                    <li class="progress-item">
+                        <input type="checkbox" onchange="updateProgress()"> Station 3
+                    </li>
+                    <li class="progress-item">
+                        <input type="checkbox" onchange="updateProgress()"> Exit Ticket
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Header Component -->
+            <div class="component-header">
+                <h1>⚡ Energy in Collisions ⚡</h1>
+                <div class="subtitle">Grade 8 Science | Rosche | Kairos Academies</div>
+            </div>
+
+            <!-- Standards Component -->
+            <div class="component-standards">
+                <h2>📚 Standards</h2>
+                <div class="standard-item">
+                    <div class="standard-code">MS-PS3-1</div>
+                    <div class="standard-description">Construct and interpret graphical displays of data to describe the relationships of kinetic energy to the mass of an object and to the speed of an object</div>
+                </div>
+                <div class="standard-item">
+                    <div class="standard-code">MS-PS3-5</div>
+                    <div class="standard-description">Construct, use, and present arguments to support the claim that when the kinetic energy of an object changes, energy is transferred to or from the object</div>
+                </div>
+            </div>
+
+            <!-- Learning Targets Component -->
+            <div class="component-targets">
+                <h2>🎯 Learning Targets</h2>
+                <p style="margin-bottom: 15px; color: var(--text-secondary);">By the end of this lesson, you will be able to:</p>
+                <div class="target-item">
+                    <div class="target-title">Target 1: Explain Energy-Mass-Velocity Relationship</div>
+                    <div class="target-description">You can use the equation KE = ½mv² to calculate and explain how mass and velocity affect kinetic energy</div>
+                </div>
+                <div class="target-item">
+                    <div class="target-title">Target 2: Analyze Energy Transformations</div>
+                    <div class="target-description">You can trace what happens to energy during collisions (kinetic → thermal, sound, deformation) with evidence</div>
+                </div>
+            </div>
+
+            <!-- Navigation Component -->
+            <div class="component-nav">
+                <h3>🧭 Quick Navigation</h3>
+                <div class="nav-buttons">
+                    <a href="#station1" class="nav-button">🔬 Station 1</a>
+                    <a href="#station2" class="nav-button">⚡ Station 2</a>
+                    <a href="#station3" class="nav-button">🛡️ Station 3</a>
+                    <a href="#exit" class="nav-button">🎓 Exit Ticket</a>
+                </div>
+            </div>
+
+            <!-- Activity Station Component with Differentiation -->
+            <div class="component-station" id="station1">
+                <div class="station-header">
+                    <h3>🔬 Station 1: Energy Simulation Investigation</h3>
+                    <div class="station-meta">Takes 25-30 minutes | 20 points</div>
+                </div>
+                <div class="station-body">
+                    <div class="station-mission">
+                        <strong>Your Mission:</strong> Use the PhET Energy Skate Park simulation to figure out how mass, velocity, and energy are connected.
+                    </div>
+
+                    <!-- Vocabulary Component -->
+                    <details class="component-vocab">
+                        <summary class="vocab-toggle">
+                            📚 Vocabulary for Station 1
+                            <span>▼</span>
+                        </summary>
+                        <div class="vocab-content">
+                            <div class="vocab-item">
+                                <div class="vocab-term">Kinetic Energy (KE)</div>
+                                <div class="vocab-definition">The energy an object has because it's moving. Formula: KE = ½mv²</div>
+                                <div class="vocab-example">Example: A bowling ball rolling has kinetic energy</div>
+                            </div>
+                            <div class="vocab-item">
+                                <div class="vocab-term">Potential Energy (PE)</div>
+                                <div class="vocab-definition">Stored energy from position or condition that can become kinetic energy</div>
+                                <div class="vocab-example">Example: At the top of a hill, the skater has maximum PE</div>
+                            </div>
+                            <div class="vocab-item">
+                                <div class="vocab-term">Energy Conservation</div>
+                                <div class="vocab-definition">Energy cannot be created or destroyed, only transformed. Total energy stays constant</div>
+                                <div class="vocab-example">Example: PE and KE trade back and forth, but total energy stays same</div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Differentiation Tabs -->
+                    <div class="differentiation-tabs">
+                        <div class="diff-tab foundations active" onclick="showDiff('foundations')">
+                            🟢 Foundations
+                        </div>
+                        <div class="diff-tab target" onclick="showDiff('target')">
+                            🟡 Target
+                        </div>
+                        <div class="diff-tab extension" onclick="showDiff('extension')">
+                            🔴 Extensions
+                        </div>
+                    </div>
+
+                    <div class="diff-content active" id="foundations">
+                        <h4>🟢 Foundations: Building Understanding</h4>
+                        <p><strong>Start here if you're new to energy concepts:</strong></p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>Watch the tutorial video first</li>
+                            <li>Use the guided investigation worksheet with sentence starters</li>
+                            <li>Focus on observing: What happens to the energy bars as the skater moves?</li>
+                            <li>Complete 2 tests (mass effect and height effect)</li>
+                        </ul>
+                    </div>
+
+                    <div class="diff-content" id="target">
+                        <h4>🟡 Target: Grade-Level Expectations</h4>
+                        <p><strong>Work at grade level:</strong></p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>Complete all 4 investigation tests</li>
+                            <li>Collect quantitative data (record actual energy values)</li>
+                            <li>Explain patterns you observe using scientific vocabulary</li>
+                            <li>Calculate kinetic energy using KE = ½mv²</li>
+                        </ul>
+                    </div>
+
+                    <div class="diff-content" id="extension">
+                        <h4>🔴 Extensions: Going Deeper</h4>
+                        <p><strong>Challenge yourself:</strong></p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>Design your own investigation question</li>
+                            <li>Create a mathematical model to predict energy values</li>
+                            <li>Investigate: Does velocity or mass have a bigger impact on KE? Provide evidence</li>
+                            <li>Compare energy conservation with and without friction - where does energy go?</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 20px; text-align: center;">
+                        <a href="https://phet.colorado.edu/sims/html/energy-skate-park/latest/energy-skate-park_en.html"
+                           target="_blank"
+                           style="background: var(--success-color); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: 600;">
+                            🚀 Launch Simulation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Stations would follow the same pattern... -->
+
+            <div style="background: var(--bg-accent); padding: 30px; border-radius: var(--radius-lg); text-align: center; margin-top: 40px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">🎉 You're viewing the Universal Canvas Learning Suite prototype!</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">Click the "⚙️ Customize This Page" button in the top right to see how easy it is to adapt this for any subject, topic, or teaching style.</p>
+                <p style="color: var(--text-light); font-size: 0.9em;">This is a living demonstration of modular, customizable, accessible learning design.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Configuration Panel Toggle
+        function toggleConfig() {
+            const panel = document.getElementById('configPanel');
+            panel.classList.toggle('open');
+        }
+
+        // Theme Switching
+        function updateTheme(subject) {
+            document.body.setAttribute('data-theme', subject);
+        }
+
+        // Font Size Adjustment
+        function updateFontSize(size) {
+            document.body.setAttribute('data-font-size', size);
+        }
+
+        // High Contrast Toggle
+        function toggleHighContrast(enabled) {
+            if (enabled) {
+                document.body.setAttribute('data-accessibility', 'high-contrast');
+            } else {
+                document.body.setAttribute('data-accessibility', 'standard');
+            }
+        }
+
+        // Differentiation Tabs
+        function showDiff(level) {
+            // Hide all content
+            document.querySelectorAll('.diff-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.diff-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected content
+            document.getElementById(level).classList.add('active');
+            document.querySelector('.diff-tab.' + level).classList.add('active');
+        }
+
+        // Progress Tracker
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.progress-item input[type="checkbox"]');
+            const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const total = checkboxes.length;
+            const percentage = Math.round((checked / total) * 100);
+
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = percentage + '%';
+        }
+
+        // Configuration Actions
+        function applyConfig() {
+            alert('Configuration applied! In the full version, this would update all components based on your selections.');
+            toggleConfig();
+        }
+
+        function resetConfig() {
+            if (confirm('Reset all configurations to default?')) {
+                document.getElementById('subject').value = 'science';
+                document.getElementById('grade').value = '8th Grade';
+                document.getElementById('topic').value = '';
+                document.getElementById('teacher').value = '';
+                updateTheme('science');
+                updateFontSize('normal');
+                toggleHighContrast(false);
+            }
+        }
+
+        function exportHTML() {
+            alert('In the full version, this would export a standalone HTML file with all your customizations embedded!');
+        }
+
+        // Close config panel when clicking outside
+        document.addEventListener('click', function(event) {
+            const panel = document.getElementById('configPanel');
+            const toggle = document.querySelector('.config-toggle');
+
+            if (panel.classList.contains('open') &&
+                !panel.contains(event.target) &&
+                !toggle.contains(event.target)) {
+                panel.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
