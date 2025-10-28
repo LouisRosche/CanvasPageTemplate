@@ -47,6 +47,33 @@ Everything in this framework serves three values—in this order:
 
 ---
 
+## ⚠️ IMPORTANT: Using with Canvas LMS
+
+**If you're using Canvas LMS (Learning Management System), please read this first:**
+
+Canvas has strict HTML/JavaScript restrictions for security reasons. When pasting HTML into Canvas:
+- ❌ JavaScript gets stripped (timers, interactive buttons won't work)
+- ❌ Event handlers removed (onclick, etc.)
+- ❌ localStorage doesn't work (progress tracking breaks)
+
+**✅ WE'VE GOT YOU COVERED:**
+- **`canvas-safe-components.html`** - Components that work perfectly in Canvas
+- **`CANVAS_COMPATIBILITY_GUIDE.md`** - Complete guide for Canvas users
+- Shows Canvas-native alternatives (Quizzes, Modules, etc.)
+- Explains what works and what doesn't
+
+**If using Canvas:**
+1. Read `CANVAS_COMPATIBILITY_GUIDE.md` first
+2. Use `canvas-safe-components.html` for your content
+3. Use Canvas's built-in features (Quizzes, Modules) for interactivity
+
+**If NOT using Canvas (standalone HTML files):**
+- All lesson examples work as-is
+- Open files directly in browser
+- Full functionality available
+
+---
+
 ## 📁 Start Here: See It In Action
 
 ### 🌟 Complete Lesson Examples (Just Open and Look!)
@@ -98,6 +125,18 @@ Everything in this framework serves three values—in this order:
   - Even simpler than the full template
   - Fast to customize
   - Minimal structure
+
+**For Canvas LMS Users:** ⭐ **Important**
+- `canvas-safe-components.html` - Canvas-Compatible Component Library
+  - NO JavaScript - works perfectly in Canvas
+  - Copy-paste directly into Canvas Rich Content Editor
+  - All components tested in Canvas
+  - Includes differentiation, activities, reflections, assessments
+- `CANVAS_COMPATIBILITY_GUIDE.md` - Complete Canvas Guide
+  - What works and what doesn't in Canvas
+  - Canvas-native alternatives (Quizzes, Modules)
+  - Step-by-step deployment instructions
+  - Troubleshooting common Canvas issues
 
 ---
 
@@ -187,6 +226,17 @@ That's it. No configuration panels. No complex setup. Just clear structure you c
 - **`IMPLEMENTATION_TOOLKIT.md`** - For rolling out to your school
 - **`TROUBLESHOOTING_GUIDE.md`** - When things go wrong
 - **`parent-letter-template.md`** - Communicate with families
+
+### For Canvas LMS Users ⭐
+- **`CANVAS_COMPATIBILITY_GUIDE.md`** - Essential reading for Canvas users
+  - What works and what doesn't in Canvas
+  - Canvas-safe alternatives to JavaScript features
+  - Step-by-step deployment instructions
+  - Troubleshooting common Canvas issues
+- **`canvas-safe-components.html`** - Ready-to-use Canvas components
+  - Copy-paste directly into Canvas
+  - No JavaScript - all Canvas-compatible
+  - Complete component library
 
 ### For Students
 - **`STUDENT_TUTORIAL.md`** - How students use learning pages

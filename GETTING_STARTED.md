@@ -101,6 +101,47 @@ This short document explains the philosophy behind everything. It shows:
 
 ---
 
+## ⚠️ IMPORTANT: Are You Using Canvas LMS?
+
+**If you're using Canvas (Learning Management System), STOP and read this section first!**
+
+Canvas has strict security restrictions that strip JavaScript and some HTML. This means:
+- ❌ Interactive timers won't work
+- ❌ "Click to reveal" buttons won't work
+- ❌ Progress tracking won't save
+- ❌ Any JavaScript features will be removed
+
+### ✅ For Canvas Users - Do This Instead:
+
+**Minutes 1-10: Read Canvas Guide**
+1. Open `CANVAS_COMPATIBILITY_GUIDE.md`
+2. Understand what works and what doesn't
+3. Learn Canvas-native alternatives
+
+**Minutes 11-20: Use Canvas-Safe Components**
+1. Open `canvas-safe-components.html`
+2. Copy one component (like the learning objectives box)
+3. Paste into Canvas Rich Content Editor (HTML view)
+4. See it work!
+
+**Minutes 21-30: Plan Canvas Deployment**
+- Create content using `canvas-safe-components.html`
+- Use Canvas Modules for organization
+- Use Canvas Quizzes for assessments
+- Use Canvas Assignments for submissions
+
+**Key Canvas Resources:**
+- `CANVAS_COMPATIBILITY_GUIDE.md` - Complete Canvas guide
+- `canvas-safe-components.html` - Ready-to-use components
+- All components are NO JavaScript - work perfectly in Canvas
+
+**If NOT using Canvas:**
+- Skip this section
+- Continue with the regular quick start below
+- All HTML files work as standalone documents
+
+---
+
 ## 🎯 What to Do Next (After Your First 30 Minutes)
 
 ### For Your First Real Lesson:
