@@ -4,526 +4,238 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Amazing Water Cycle - Grade 2 Science</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Comic Sans MS', 'Arial', sans-serif;
-            line-height: 1.8;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #89CFF0 0%, #4A90E2 100%);
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #89CFF0 0%, #4A90E2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .header p {
-            font-size: 1.3em;
-        }
-
-        .content {
-            padding: 30px;
-        }
-
-        .welcome {
-            background: #FFF9E6;
-            border: 4px solid #FFD700;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            font-size: 1.2em;
-        }
-
-        .welcome h2 {
-            color: #FF6B6B;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: #4A90E2;
-            font-size: 2em;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #E3F2FD;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .big-idea {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 20px 0;
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .water-cycle-diagram {
-            background: #E3F2FD;
-            border: 3px solid #4A90E2;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .cycle-step {
-            background: white;
-            border: 3px solid #4A90E2;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 15px 0;
-            font-size: 1.2em;
-        }
-
-        .cycle-step h3 {
-            color: #4A90E2;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .cycle-step .emoji {
-            font-size: 3em;
-            margin: 10px 0;
-        }
-
-        .example-box {
-            background: #E8F5E9;
-            border-left: 6px solid #4CAF50;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 8px;
-            font-size: 1.15em;
-        }
-
-        .example-box h4 {
-            color: #2E7D32;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-
-        .kind-box {
-            background: #FFE0F0;
-            border: 4px solid #FF69B4;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            font-size: 1.2em;
-        }
-
-        .kind-box strong {
-            color: #C71585;
-        }
-
-        .activity-card {
-            background: #FFF3E0;
-            border: 3px solid #FF9800;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .activity-card h3 {
-            color: #E65100;
-            font-size: 1.6em;
-            margin-bottom: 15px;
-        }
-
-        .activity-steps {
-            margin: 20px 0;
-            font-size: 1.1em;
-        }
-
-        .activity-steps li {
-            margin: 15px 0;
-            padding: 10px;
-            background: white;
-            border-radius: 8px;
-            border-left: 4px solid #FF9800;
-        }
-
-        .choice-boxes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .choice-box {
-            background: white;
-            border: 4px solid #4A90E2;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .choice-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.3);
-        }
-
-        .choice-box h4 {
-            color: #4A90E2;
-            font-size: 1.4em;
-            margin: 10px 0;
-        }
-
-        .fun-fact {
-            background: linear-gradient(135deg, #A8E6CF 0%, #7FDBFF 100%);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            border: 3px solid #00C9A7;
-        }
-
-        .fun-fact h3 {
-            color: #00695C;
-            margin-bottom: 10px;
-            font-size: 1.5em;
-        }
-
-        .celebration {
-            background: linear-gradient(135deg, #FFD700 0%, #FF6B6B 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            margin: 30px 0;
-            font-size: 1.3em;
-        }
-
-        .celebration h2 {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-        }
-
-        .emoji-big {
-            font-size: 4em;
-            margin: 20px 0;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .choice-boxes {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>💧 The Amazing Water Cycle! 💧</h1>
-            <p>A Science Adventure for Grade 2</p>
-            <p>About 30 minutes of fun learning!</p>
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.7; color: #2c3e50; max-width: 100%; margin: 0 auto; padding: 0;">
+
+        <!-- HERO BANNER -->
+        <div style="background: linear-gradient(135deg, #89CFF0 0%, #4A90E2 100%); color: white; padding: 50px 40px; text-align: center; border-radius: 12px; margin: 0 0 20px 0;" role="banner" aria-labelledby="lesson-title">
+            <div style="font-size: 3em; margin-bottom: 15px;" role="img" aria-label="Water droplet icon">💧</div>
+            <h1 id="lesson-title" style="margin: 0 0 15px 0; font-size: 2.5em; line-height: 1.2;">The Amazing Water Cycle!</h1>
+            <p style="margin: 0; font-size: 1.2em;">Grade 2 Science | About 30 minutes of fun learning!</p>
         </div>
 
-        <div class="content">
-            <div class="welcome">
-                <h2>🌟 Hello, Young Scientist! 🌟</h2>
-                <p>Today you're going to learn something AMAZING about water! Did you know that the water you drink today might be the same water that dinosaurs drank millions of years ago? It's true! Water goes on a journey called the <strong>Water Cycle</strong>, and you're going to discover how it works!</p>
+        <!-- LEARNING TARGETS -->
+        <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); padding: 25px 20px; margin-bottom: 25px; border-radius: 8px; text-align: center;" role="region" aria-labelledby="targets-heading">
+            <h2 id="targets-heading" style="margin: 0 0 10px 0; color: #2d3748; font-size: 1.7em;">🎯 By the End, You'll Know:</h2>
+            <ul style="list-style: none; padding: 0; margin: 15px 0 0 0; color: #4a5568; font-size: 1.1em; line-height: 1.9;">
+                <li style="margin: 10px 0;">✅ The 4 steps of the water cycle</li>
+                <li style="margin: 10px 0;">✅ Why we'll never run out of water</li>
+                <li style="margin: 10px 0;">✅ How rain happens</li>
+                <li style="margin: 10px 0;">✅ Where water goes when it disappears!</li>
+            </ul>
+        </div>
 
-                <p style="margin-top: 15px;"><strong>By the end of this lesson, you'll know:</strong></p>
-                <ul style="margin-left: 30px; margin-top: 10px; font-size: 1.1em;">
-                    <li>✅ The 4 steps of the water cycle</li>
-                    <li>✅ Why we'll never run out of water</li>
-                    <li>✅ How rain happens</li>
-                    <li>✅ Where water goes when it disappears!</li>
-                </ul>
+        <!-- WELCOME MESSAGE -->
+        <div style="background: white; border-left: 5px solid #4A90E2; padding: 20px; margin-bottom: 20px; border-radius: 8px;" role="region" aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading" style="margin: 0 0 15px 0; color: #4A90E2; font-size: 1.4em;">🌟 Hello, Young Scientist!</h2>
+            <p style="margin: 0 0 15px 0; font-size: 1.15em; line-height: 1.8;">Today you're going to learn something AMAZING about water! Did you know that the water you drink today might be the same water that dinosaurs drank millions of years ago? It's true!</p>
+            <p style="margin: 0; font-size: 1.15em; line-height: 1.8;">Water goes on a journey called the <strong>Water Cycle</strong>, and you're going to discover how it works!</p>
+        </div>
 
-                <p style="margin-top: 15px; font-weight: bold; color: #FF6B6B;">Let's go on this water adventure together! 🚀</p>
-            </div>
+        <!-- BIG QUESTION -->
+        <div style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: white; padding: 30px; border-radius: 15px; margin: 20px 0; text-align: center; font-size: 1.3em; font-weight: bold;">
+            🤔 BIG QUESTION: Where does water go when it dries up? Does it disappear forever? 🤔
+        </div>
 
-            <!-- BIG QUESTION -->
-            <div class="big-idea">
-                🤔 BIG QUESTION: Where does water go when it dries up? Does it disappear forever? 🤔
-            </div>
+        <!-- THREE-STEP LEARNING JOURNEY -->
+        <div style="background: linear-gradient(135deg, #f6f9fc 0%, #e9ecef 100%); padding: 30px 20px; margin-bottom: 25px; border-radius: 8px;" role="region" aria-labelledby="journey-heading">
+            <h2 id="journey-heading" style="margin: 0 0 20px 0; color: #2d3748; font-size: 1.6em; text-align: center;">📚 Your Water Cycle Journey</h2>
 
-            <div class="kind-box">
-                <p><strong>💙 Think about this:</strong> When you leave a puddle outside on a sunny day, what happens? Does the water disappear? Where does it go? There's no wrong answer—just think about what you've noticed! 🌞</p>
-            </div>
+            <!-- STEP 1: LEARN -->
+            <div style="background: white; border-top: 5px solid #3498DB; padding: 25px 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 15px 0; color: #3498DB; font-size: 1.4em;">Step 1: Learn the Water Cycle 📖</h3>
 
-            <!-- SECTION 1: WHAT IS THE WATER CYCLE -->
-            <div class="section">
-                <h2>🌊 What is the Water Cycle?</h2>
+                <h4 style="margin: 20px 0 10px 0; color: #2d3748; font-size: 1.25em;">🌊 What is the Water Cycle?</h4>
+                <p style="margin: 0 0 20px 0; font-size: 1.15em; line-height: 1.8;">The water cycle is water's never-ending journey! Water goes <strong>round and round</strong> from the ocean, to the sky, back to the land, and back to the ocean again!</p>
 
-                <p style="font-size: 1.2em;">The water cycle is water's never-ending journey! Water goes <strong>round and round</strong> from the ocean, to the sky, back to the land, and back to the ocean again!</p>
-
-                <div class="water-cycle-diagram">
-                    <h3 style="color: #4A90E2; margin-bottom: 20px;">The Water Cycle Journey!</h3>
-                    <div class="emoji-big">☀️ ➡️ 💧 ➡️ ☁️ ➡️ 🌧️ ➡️ 🌊</div>
-                    <p style="font-size: 1.2em; margin-top: 20px;"><strong>Sun heats water ➡️ Water goes up ➡️ Makes clouds ➡️ Rain falls ➡️ Water goes back!</strong></p>
+                <div style="background: #E3F2FD; border: 3px solid #4A90E2; border-radius: 15px; padding: 30px; margin: 20px 0; text-align: center;">
+                    <h5 style="margin: 0 0 20px 0; color: #4A90E2; font-size: 1.3em;">The Water Cycle Journey!</h5>
+                    <div style="font-size: 2.5em; margin: 20px 0;">☀️ ➡️ 💧 ➡️ ☁️ ➡️ 🌧️ ➡️ 🌊</div>
+                    <p style="margin: 20px 0 0 0; font-size: 1.15em; line-height: 1.8;"><strong>Sun heats water ➡️ Water goes up ➡️ Makes clouds ➡️ Rain falls ➡️ Water goes back!</strong></p>
                 </div>
 
-                <div class="kind-box">
-                    <p><strong>💙 Cool, right?</strong> Water doesn't disappear—it just goes on a trip and comes back! You're going to learn each step of this amazing journey! 🎉</p>
-                </div>
-            </div>
+                <h4 style="margin: 30px 0 10px 0; color: #2d3748; font-size: 1.25em;">🔢 The 4 Steps of the Water Cycle</h4>
+                <p style="margin: 0 0 20px 0; font-size: 1.15em; line-height: 1.8;">Let's learn each step! These big words might look tricky, but we'll learn them together!</p>
 
-            <!-- SECTION 2: THE FOUR STEPS -->
-            <div class="section">
-                <h2>🔢 The 4 Steps of the Water Cycle</h2>
-
-                <p style="font-size: 1.2em; margin-bottom: 20px;">Let's learn each step! These big words might look tricky, but we'll learn them together!</p>
-
-                <!-- STEP 1: EVAPORATION -->
-                <div class="cycle-step">
-                    <div class="emoji">☀️💧</div>
-                    <h3>Step 1: Evaporation</h3>
-                    <p><strong>Say it:</strong> ee-VAP-or-AY-shun</p>
-                    <p style="margin-top: 15px; font-size: 1.2em;"><strong>What happens:</strong> The sun heats up water in oceans, lakes, and rivers. The water turns into an invisible gas called <strong>water vapor</strong> and floats up into the sky!</p>
+                <!-- EVAPORATION -->
+                <div style="background: white; border: 3px solid #4A90E2; border-radius: 15px; padding: 20px; margin: 15px 0;">
+                    <div style="text-align: center; font-size: 2.5em; margin: 10px 0;">☀️💧</div>
+                    <h5 style="margin: 0 0 10px 0; color: #4A90E2; font-size: 1.3em;">Step 1: Evaporation</h5>
+                    <p style="margin: 0 0 10px 0; font-size: 1.05em;"><strong>Say it:</strong> ee-VAP-or-AY-shun</p>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;"><strong>What happens:</strong> The sun heats up water in oceans, lakes, and rivers. The water turns into an invisible gas called <strong>water vapor</strong> and floats up into the sky!</p>
                 </div>
 
-                <div class="example-box">
-                    <h4>🌞 You've Seen This!</h4>
-                    <p><strong>Example 1:</strong> When you take a bath and the mirror gets foggy—that's water vapor!</p>
-                    <p style="margin-top: 10px;"><strong>Example 2:</strong> When a puddle dries up on a sunny day—the water evaporated into the air!</p>
-                    <p style="margin-top: 10px;"><strong>Example 3:</strong> When wet clothes on the clothesline dry—the water evaporated!</p>
-                </div>
-
-                <!-- STEP 2: CONDENSATION -->
-                <div class="cycle-step">
-                    <div class="emoji">☁️💨</div>
-                    <h3>Step 2: Condensation</h3>
-                    <p><strong>Say it:</strong> con-den-SAY-shun</p>
-                    <p style="margin-top: 15px; font-size: 1.2em;"><strong>What happens:</strong> When water vapor goes high up in the sky, it gets cold! The cold makes the water vapor turn back into tiny water droplets. These droplets stick together and make <strong>clouds</strong>!</p>
-                </div>
-
-                <div class="example-box">
-                    <h4>☁️ You've Seen This!</h4>
-                    <p><strong>Example 1:</strong> When you see your breath on a cold day—that's condensation!</p>
-                    <p style="margin-top: 10px;"><strong>Example 2:</strong> When a cold glass of lemonade has water drops on the outside—that's condensation!</p>
-                    <p style="margin-top: 10px;"><strong>Example 3:</strong> Clouds in the sky are made of condensation!</p>
-                </div>
-
-                <!-- STEP 3: PRECIPITATION -->
-                <div class="cycle-step">
-                    <div class="emoji">🌧️❄️</div>
-                    <h3>Step 3: Precipitation</h3>
-                    <p><strong>Say it:</strong> prih-sip-ih-TAY-shun</p>
-                    <p style="margin-top: 15px; font-size: 1.2em;"><strong>What happens:</strong> When clouds get too full of water droplets, the water falls back down! This can be <strong>rain, snow, sleet, or hail</strong>!</p>
-                </div>
-
-                <div class="example-box">
-                    <h4>🌧️ You've Seen This!</h4>
-                    <p><strong>Example 1:</strong> Rain falling from the clouds!</p>
-                    <p style="margin-top: 10px;"><strong>Example 2:</strong> Snow in winter!</p>
-                    <p style="margin-top: 10px;"><strong>Example 3:</strong> Hail (little ice balls) during a storm!</p>
-                    <p style="margin-top: 15px; font-weight: bold; color: #2E7D32;">All of these are precipitation—just different forms of water falling from the sky!</p>
-                </div>
-
-                <!-- STEP 4: COLLECTION -->
-                <div class="cycle-step">
-                    <div class="emoji">🌊🏞️</div>
-                    <h3>Step 4: Collection</h3>
-                    <p><strong>Say it:</strong> kuh-LEK-shun</p>
-                    <p style="margin-top: 15px; font-size: 1.2em;"><strong>What happens:</strong> Water that falls as rain or snow collects in oceans, lakes, rivers, and even underground! Then the sun heats it up again, and the cycle starts over!</p>
-                </div>
-
-                <div class="example-box">
-                    <h4>🌊 You've Seen This!</h4>
-                    <p><strong>Example 1:</strong> Rain collecting in puddles!</p>
-                    <p style="margin-top: 10px;"><strong>Example 2:</strong> Rivers flowing to the ocean!</p>
-                    <p style="margin-top: 10px;"><strong>Example 3:</strong> Water in lakes and ponds!</p>
-                </div>
-
-                <div class="kind-box">
-                    <p><strong>💙 You're doing GREAT!</strong> Those are big science words, but you just learned them! Evaporation, Condensation, Precipitation, Collection. Say them out loud—you sound like a real scientist! 🥼🔬</p>
-                </div>
-            </div>
-
-            <!-- REVIEW GAME -->
-            <div class="section">
-                <h2>🎮 Let's Practice!</h2>
-
-                <p style="font-size: 1.2em; margin-bottom: 20px;">Which step of the water cycle is happening? Think about your answer!</p>
-
-                <div class="activity-card">
-                    <h3>Situation 1:</h3>
-                    <p style="font-size: 1.2em;">🌞 It's a sunny day. A puddle from yesterday's rain is getting smaller and smaller until it's gone!</p>
-                    <p style="margin-top: 15px; font-weight: bold; color: #E65100;">What's happening? (Think before you look!)</p>
-                    <p style="margin-top: 10px; background: white; padding: 15px; border-radius: 8px;">Answer: <strong>Evaporation!</strong> The sun is heating the water and turning it into water vapor that goes up into the air!</p>
-                </div>
-
-                <div class="activity-card">
-                    <h3>Situation 2:</h3>
-                    <p style="font-size: 1.2em;">☁️ You look up at the sky and see fluffy white clouds!</p>
-                    <p style="margin-top: 15px; font-weight: bold; color: #E65100;">What's happening?</p>
-                    <p style="margin-top: 10px; background: white; padding: 15px; border-radius: 8px;">Answer: <strong>Condensation!</strong> Water vapor cooled down high in the sky and turned into tiny droplets that made clouds!</p>
-                </div>
-
-                <div class="activity-card">
-                    <h3>Situation 3:</h3>
-                    <p style="font-size: 1.2em;">🌧️ It's raining! Water is falling from the clouds onto the ground!</p>
-                    <p style="margin-top: 15px; font-weight: bold; color: #E65100;">What's happening?</p>
-                    <p style="margin-top: 10px; background: white; padding: 15px; border-radius: 8px;">Answer: <strong>Precipitation!</strong> The clouds got too heavy with water, so the water is falling down as rain!</p>
-                </div>
-
-                <div class="activity-card">
-                    <h3>Situation 4:</h3>
-                    <p style="font-size: 1.2em;">🏞️ The rain from the storm is filling up the lake near your house!</p>
-                    <p style="margin-top: 15px; font-weight: bold; color: #E65100;">What's happening?</p>
-                    <p style="margin-top: 10px; background: white; padding: 15px; border-radius: 8px;">Answer: <strong>Collection!</strong> The water is gathering together in the lake, where it will wait for the sun to heat it up and start the cycle again!</p>
-                </div>
-
-                <div class="kind-box">
-                    <p><strong>💙 How did you do?</strong> If you got them all right—awesome! If you missed some—that's totally fine! Learning means practicing, and you're practicing right now! Try reading through the steps again if you need to. You've got this! 💪</p>
-                </div>
-            </div>
-
-            <!-- FUN FACTS -->
-            <div class="section">
-                <h2>🎉 Amazing Water Facts!</h2>
-
-                <div class="fun-fact">
-                    <h3>🦕 Fact 1: Dinosaur Water!</h3>
-                    <p style="font-size: 1.15em;">The water on Earth today is the SAME water that was here when dinosaurs lived! The water cycle has been going round and round for billions of years! The water you drank today might have been in a T-Rex's footprint once! 🦖💧</p>
-                </div>
-
-                <div class="fun-fact">
-                    <h3>🌍 Fact 2: Never-Ending Supply!</h3>
-                    <p style="font-size: 1.15em;">We will NEVER run out of water because of the water cycle! The same water keeps going round and round. But we DO need to keep water clean so it's safe to drink! 💙</p>
-                </div>
-
-                <div class="fun-fact">
-                    <h3>☁️ Fact 3: Clouds are Heavy!</h3>
-                    <p style="font-size: 1.15em;">A cloud that looks fluffy and light can actually weigh as much as 100 elephants! 🐘🐘🐘 That's a LOT of water droplets!</p>
-                </div>
-
-                <div class="fun-fact">
-                    <h3>💧 Fact 4: Water is Everywhere!</h3>
-                    <p style="font-size: 1.15em;">Most of Earth (about 70%) is covered in water! But most of that is salty ocean water. Only a tiny bit (about 3%) is fresh water we can drink! That's why we need to save water and not waste it! 🌊</p>
-                </div>
-            </div>
-
-            <!-- HANDS-ON ACTIVITY -->
-            <div class="section">
-                <h2>🔬 Time to Be a Scientist!</h2>
-
-                <p style="font-size: 1.2em; margin-bottom: 20px;">Choose ONE activity to do! Pick the one that sounds most fun to you!</p>
-
-                <div class="choice-boxes">
-                    <div class="choice-box">
-                        <div style="font-size: 3em;">🎨</div>
-                        <h4>Draw It!</h4>
-                        <p>Draw the water cycle with all 4 steps! Use arrows to show how water moves! Color it and label each step!</p>
-                    </div>
-
-                    <div class="choice-box">
-                        <div style="font-size: 3em;">🔍</div>
-                        <h4>Find It!</h4>
-                        <p>Go on a Water Cycle Hunt! Find one example of evaporation, condensation, and precipitation in your house or outside!</p>
-                    </div>
-
-                    <div class="choice-box">
-                        <div style="font-size: 3em;">📖</div>
-                        <h4>Write It!</h4>
-                        <p>Write a story about a water droplet's journey through the water cycle! Where does it go? What does it see?</p>
-                    </div>
-                </div>
-
-                <div class="activity-card" style="margin-top: 30px;">
-                    <h3>🧪 BONUS: Try This Experiment at Home!</h3>
-                    <p style="font-size: 1.15em; margin-bottom: 15px;"><strong>Make Your Own Mini Water Cycle!</strong></p>
-
-                    <p><strong>You'll need:</strong></p>
-                    <ul style="margin-left: 30px; margin-top: 10px;">
-                        <li>A clear plastic cup or bowl</li>
-                        <li>Some water</li>
-                        <li>A sunny window</li>
-                        <li>A grown-up to help (optional)</li>
+                <div style="background: #E8F5E9; border-left: 6px solid #4CAF50; padding: 20px; margin: 15px 0; border-radius: 8px;">
+                    <h6 style="margin: 0 0 10px 0; color: #2E7D32; font-size: 1.2em;">🌞 You've Seen This!</h6>
+                    <ul style="margin: 0; font-size: 1.1em; line-height: 1.9;">
+                        <li style="margin-bottom: 8px;">When a puddle dries up on a sunny day—the water evaporated!</li>
+                        <li style="margin-bottom: 8px;">When wet clothes on the line dry—the water evaporated!</li>
+                        <li>When you take a bath and the mirror gets foggy—that's water vapor!</li>
                     </ul>
-
-                    <ol class="activity-steps">
-                        <li><strong>Step 1:</strong> Put some water in the cup (about halfway full)</li>
-                        <li><strong>Step 2:</strong> Put the cup in a sunny window</li>
-                        <li><strong>Step 3:</strong> Wait a few hours or a day</li>
-                        <li><strong>Step 4:</strong> Look at the cup! Is there less water? Where did it go?</li>
-                        <li><strong>Step 5:</strong> Can you see tiny water drops on the sides of the cup? That's condensation!</li>
-                    </ol>
-
-                    <p style="margin-top: 20px; font-weight: bold; background: #E8F5E9; padding: 15px; border-radius: 8px;">🌟 You just made a mini water cycle! The water evaporated, turned into water vapor, then condensed on the sides! If you left it long enough, drops might even fall back down (precipitation)!</p>
                 </div>
 
-                <div class="kind-box">
-                    <p><strong>💙 Remember:</strong> There's no rush! Pick the activity that sounds most fun to YOU! This is YOUR learning adventure! Some kids like drawing, some like writing, some like experimenting—they're all great ways to learn! 🌈</p>
+                <!-- CONDENSATION -->
+                <div style="background: white; border: 3px solid #4A90E2; border-radius: 15px; padding: 20px; margin: 15px 0;">
+                    <div style="text-align: center; font-size: 2.5em; margin: 10px 0;">☁️💨</div>
+                    <h5 style="margin: 0 0 10px 0; color: #4A90E2; font-size: 1.3em;">Step 2: Condensation</h5>
+                    <p style="margin: 0 0 10px 0; font-size: 1.05em;"><strong>Say it:</strong> con-den-SAY-shun</p>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;"><strong>What happens:</strong> When water vapor goes high up in the sky, it gets cold! The cold makes the water vapor turn back into tiny water droplets. These droplets stick together and make <strong>clouds</strong>!</p>
+                </div>
+
+                <div style="background: #E8F5E9; border-left: 6px solid #4CAF50; padding: 20px; margin: 15px 0; border-radius: 8px;">
+                    <h6 style="margin: 0 0 10px 0; color: #2E7D32; font-size: 1.2em;">☁️ You've Seen This!</h6>
+                    <ul style="margin: 0; font-size: 1.1em; line-height: 1.9;">
+                        <li style="margin-bottom: 8px;">When you see your breath on a cold day—that's condensation!</li>
+                        <li style="margin-bottom: 8px;">When a cold glass has water drops on the outside—that's condensation!</li>
+                        <li>Clouds in the sky are made of condensation!</li>
+                    </ul>
+                </div>
+
+                <!-- PRECIPITATION -->
+                <div style="background: white; border: 3px solid #4A90E2; border-radius: 15px; padding: 20px; margin: 15px 0;">
+                    <div style="text-align: center; font-size: 2.5em; margin: 10px 0;">🌧️❄️</div>
+                    <h5 style="margin: 0 0 10px 0; color: #4A90E2; font-size: 1.3em;">Step 3: Precipitation</h5>
+                    <p style="margin: 0 0 10px 0; font-size: 1.05em;"><strong>Say it:</strong> prih-sip-ih-TAY-shun</p>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;"><strong>What happens:</strong> When clouds get too full of water droplets, the water falls back down! This can be <strong>rain, snow, sleet, or hail</strong>!</p>
+                </div>
+
+                <div style="background: #E8F5E9; border-left: 6px solid #4CAF50; padding: 20px; margin: 15px 0; border-radius: 8px;">
+                    <h6 style="margin: 0 0 10px 0; color: #2E7D32; font-size: 1.2em;">🌧️ You've Seen This!</h6>
+                    <ul style="margin: 0 0 10px 0; font-size: 1.1em; line-height: 1.9;">
+                        <li style="margin-bottom: 8px;">Rain falling from the clouds!</li>
+                        <li style="margin-bottom: 8px;">Snow in winter!</li>
+                        <li>Hail (little ice balls) during a storm!</li>
+                    </ul>
+                    <p style="margin: 0; font-weight: bold; color: #2E7D32; font-size: 1.05em;">All of these are precipitation—just different forms of water falling from the sky!</p>
+                </div>
+
+                <!-- COLLECTION -->
+                <div style="background: white; border: 3px solid #4A90E2; border-radius: 15px; padding: 20px; margin: 15px 0;">
+                    <div style="text-align: center; font-size: 2.5em; margin: 10px 0;">🌊🏞️</div>
+                    <h5 style="margin: 0 0 10px 0; color: #4A90E2; font-size: 1.3em;">Step 4: Collection</h5>
+                    <p style="margin: 0 0 10px 0; font-size: 1.05em;"><strong>Say it:</strong> kuh-LEK-shun</p>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;"><strong>What happens:</strong> Water that falls as rain or snow collects in oceans, lakes, rivers, and even underground! Then the sun heats it up again, and the cycle starts over!</p>
+                </div>
+
+                <div style="background: #E8F5E9; border-left: 6px solid #4CAF50; padding: 20px; margin: 15px 0; border-radius: 8px;">
+                    <h6 style="margin: 0 0 10px 0; color: #2E7D32; font-size: 1.2em;">🌊 You've Seen This!</h6>
+                    <ul style="margin: 0; font-size: 1.1em; line-height: 1.9;">
+                        <li style="margin-bottom: 8px;">Rain collecting in puddles!</li>
+                        <li style="margin-bottom: 8px;">Rivers flowing to the ocean!</li>
+                        <li>Water in lakes and ponds!</li>
+                    </ul>
+                </div>
+
+                <div style="background: #FFE0F0; border: 4px solid #FF69B4; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;"><strong style="color: #C71585;">💙 You're doing GREAT!</strong> Those are big science words, but you just learned them! Evaporation, Condensation, Precipitation, Collection. Say them out loud—you sound like a real scientist! 🥼🔬</p>
                 </div>
             </div>
 
-            <!-- CELEBRATION -->
-            <div class="celebration">
-                <h2>🎉 You Did It, Scientist! 🎉</h2>
-                <div class="emoji-big">⭐🏆🌟</div>
-                <p>You just learned something AMAZING! You now know:</p>
-                <ul style="margin: 20px auto; text-align: left; max-width: 500px; font-size: 1.2em;">
-                    <li>✅ The 4 steps of the water cycle</li>
-                    <li>✅ Why water never disappears forever</li>
-                    <li>✅ How rain and clouds happen</li>
-                    <li>✅ Where puddles go when they dry up</li>
-                </ul>
-                <p style="font-size: 1.3em; margin-top: 20px;"><strong>You're a Water Cycle Expert!</strong> 💧🎓</p>
+            <!-- STEP 2: APPLY -->
+            <div style="background: white; border-top: 5px solid #52C75A; padding: 25px 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 15px 0; color: #52C75A; font-size: 1.4em;">Step 2: Practice and Explore ✏️</h3>
+
+                <h4 style="margin: 20px 0 10px 0; color: #2d3748; font-size: 1.25em;">🎮 Let's Practice!</h4>
+                <p style="margin: 0 0 20px 0; font-size: 1.15em; line-height: 1.8;">Which step of the water cycle is happening? Think about your answer!</p>
+
+                <div style="background: #FFF3E0; border: 3px solid #FF9800; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <h5 style="margin: 0 0 10px 0; color: #E65100; font-size: 1.2em;">Situation 1:</h5>
+                    <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">🌞 It's a sunny day. A puddle from yesterday's rain is getting smaller and smaller until it's gone!</p>
+                    <p style="margin: 0 0 10px 0; font-weight: bold; color: #E65100;">What's happening?</p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <p style="margin: 0; font-size: 1.05em;">Answer: <strong>Evaporation!</strong> The sun is heating the water and turning it into water vapor that goes up into the air!</p>
+                    </div>
+                </div>
+
+                <div style="background: #FFF3E0; border: 3px solid #FF9800; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <h5 style="margin: 0 0 10px 0; color: #E65100; font-size: 1.2em;">Situation 2:</h5>
+                    <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">☁️ You look up at the sky and see fluffy white clouds!</p>
+                    <p style="margin: 0 0 10px 0; font-weight: bold; color: #E65100;">What's happening?</p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <p style="margin: 0; font-size: 1.05em;">Answer: <strong>Condensation!</strong> Water vapor cooled down high in the sky and turned into tiny droplets that made clouds!</p>
+                    </div>
+                </div>
+
+                <div style="background: #FFF3E0; border: 3px solid #FF9800; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <h5 style="margin: 0 0 10px 0; color: #E65100; font-size: 1.2em;">Situation 3:</h5>
+                    <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">🌧️ It's raining! Water is falling from the clouds onto the ground!</p>
+                    <p style="margin: 0 0 10px 0; font-weight: bold; color: #E65100;">What's happening?</p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <p style="margin: 0; font-size: 1.05em;">Answer: <strong>Precipitation!</strong> The clouds got too heavy with water, so the water is falling down as rain!</p>
+                    </div>
+                </div>
+
+                <h4 style="margin: 30px 0 10px 0; color: #2d3748; font-size: 1.25em;">🎉 Amazing Water Facts!</h4>
+
+                <div style="background: linear-gradient(135deg, #A8E6CF 0%, #7FDBFF 100%); border-radius: 15px; padding: 20px; margin: 15px 0; border: 3px solid #00C9A7;">
+                    <h5 style="margin: 0 0 10px 0; color: #00695C; font-size: 1.2em;">🦕 Fact 1: Dinosaur Water!</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.8;">The water on Earth today is the SAME water that was here when dinosaurs lived! The water you drank today might have been in a T-Rex's footprint once! 🦖💧</p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #A8E6CF 0%, #7FDBFF 100%); border-radius: 15px; padding: 20px; margin: 15px 0; border: 3px solid #00C9A7;">
+                    <h5 style="margin: 0 0 10px 0; color: #00695C; font-size: 1.2em;">☁️ Fact 2: Clouds are Heavy!</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.8;">A cloud that looks fluffy and light can actually weigh as much as 100 elephants! 🐘 That's a LOT of water droplets!</p>
+                </div>
+
+                <h4 style="margin: 30px 0 10px 0; color: #2d3748; font-size: 1.25em;">🔬 Choose Your Activity!</h4>
+                <p style="margin: 0 0 20px 0; font-size: 1.15em; line-height: 1.8;">Pick ONE activity to do! Choose the one that sounds most fun to you!</p>
+
+                <div style="background: #dbeafe; padding: 20px; border-radius: 15px; margin: 15px 0;">
+                    <div style="text-align: center; font-size: 2.5em; margin-bottom: 10px;">🎨</div>
+                    <h5 style="margin: 0 0 10px 0; color: #1e40af; font-size: 1.2em; text-align: center;">Draw It!</h5>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8; text-align: center;">Draw the water cycle with all 4 steps! Use arrows to show how water moves! Color it and label each step!</p>
+                </div>
+
+                <div style="background: #dbeafe; padding: 20px; border-radius: 15px; margin: 15px 0;">
+                    <div style="text-align: center; font-size: 2.5em; margin-bottom: 10px;">🔍</div>
+                    <h5 style="margin: 0 0 10px 0; color: #1e40af; font-size: 1.2em; text-align: center;">Find It!</h5>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8; text-align: center;">Go on a Water Cycle Hunt! Find one example of evaporation, condensation, and precipitation in your house or outside!</p>
+                </div>
+
+                <div style="background: #dbeafe; padding: 20px; border-radius: 15px; margin: 15px 0;">
+                    <div style="text-align: center; font-size: 2.5em; margin-bottom: 10px;">📖</div>
+                    <h5 style="margin: 0 0 10px 0; color: #1e40af; font-size: 1.2em; text-align: center;">Write It!</h5>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8; text-align: center;">Write a story about a water droplet's journey through the water cycle! Where does it go? What does it see?</p>
+                </div>
             </div>
 
-            <div class="welcome" style="margin-top: 30px;">
-                <h2>🌈 Keep Exploring!</h2>
-                <p>Now that you know about the water cycle, you'll see it EVERYWHERE! On rainy days, on sunny days, when you drink water, when you see clouds—it's all part of the amazing water cycle!</p>
+            <!-- STEP 3: REFLECT -->
+            <div style="background: white; border-top: 5px solid #9B59B6; padding: 25px 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 15px 0; color: #9B59B6; font-size: 1.4em;">Step 3: Keep Exploring! 🌟</h3>
 
-                <p style="margin-top: 15px;"><strong>Questions to think about:</strong></p>
-                <ul style="margin-left: 30px; margin-top: 10px; font-size: 1.1em;">
-                    <li>What would happen if the sun stopped shining? (Would the water cycle stop?)</li>
-                    <li>Why is it important to keep water clean?</li>
-                    <li>Where does the water you drink come from?</li>
-                </ul>
+                <p style="margin: 0 0 20px 0; font-size: 1.15em; line-height: 1.8;">Now that you know about the water cycle, you'll see it EVERYWHERE! On rainy days, on sunny days, when you drink water, when you see clouds—it's all part of the amazing water cycle!</p>
 
-                <p style="margin-top: 20px; font-weight: bold; color: #4A90E2; font-size: 1.2em;">Keep being curious! Keep asking questions! You're an AMAZING scientist! 🔬✨</p>
-            </div>
+                <div style="background: #f3e5f5; padding: 20px; border-radius: 15px; margin: 20px 0; border-left: 5px solid #9B59B6;">
+                    <h4 style="margin: 0 0 15px 0; color: #6a1b9a; font-size: 1.2em;">Questions to Think About:</h4>
+                    <ul style="margin: 0; font-size: 1.1em; line-height: 1.9;">
+                        <li style="margin-bottom: 10px;">What would happen if the sun stopped shining? (Would the water cycle stop?)</li>
+                        <li style="margin-bottom: 10px;">Why is it important to keep water clean?</li>
+                        <li>Where does the water you drink come from?</li>
+                    </ul>
+                </div>
 
-            <div class="kind-box" style="margin-top: 30px;">
-                <p><strong>💙 Share What You Learned!</strong></p>
-                <p style="font-size: 1.15em;">Tell someone at home about the water cycle! Can you explain all 4 steps? Teaching someone else is a great way to make sure YOU really understand it! And guess what? Your family will think you're so smart! 🌟</p>
+                <div style="background: #FFE0F0; border: 4px solid #FF69B4; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;"><strong style="color: #C71585;">💙 Share What You Learned!</strong> Tell someone at home about the water cycle! Can you explain all 4 steps? Teaching someone else is a great way to make sure YOU really understand it! 🌟</p>
+                </div>
             </div>
         </div>
+
+        <!-- COMPLETION CELEBRATION -->
+        <div style="background: linear-gradient(135deg, #FFD700 0%, #FF6B6B 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 25px;" role="region" aria-labelledby="celebration-heading">
+            <h2 id="celebration-heading" style="margin: 0 0 15px 0; font-size: 2em;">🎉 You Did It, Scientist! 🎉</h2>
+            <div style="font-size: 3em; margin: 20px 0;">⭐🏆🌟</div>
+            <p style="font-size: 1.2em; margin: 0 0 20px 0; line-height: 1.8;">You just learned something AMAZING! You now know:</p>
+            <ul style="list-style: none; padding: 0; margin: 20px 0; font-size: 1.15em; line-height: 2;">
+                <li>✅ The 4 steps of the water cycle</li>
+                <li>✅ Why water never disappears forever</li>
+                <li>✅ How rain and clouds happen</li>
+                <li>✅ Where puddles go when they dry up</li>
+            </ul>
+            <p style="font-size: 1.3em; margin-top: 20px;"><strong>You're a Water Cycle Expert!</strong> 💧🎓</p>
+            <p style="margin-top: 15px; font-size: 1.1em;">Keep being curious! Keep asking questions! You're an AMAZING scientist! 🔬✨</p>
+        </div>
+
     </div>
 </body>
 </html>
