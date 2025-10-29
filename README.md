@@ -47,30 +47,42 @@ Everything in this framework serves three values—in this order:
 
 ---
 
-## ⚠️ IMPORTANT: Using with Canvas LMS
+## ⚠️ CRITICAL: Canvas LMS Users - Read This First!
 
-**If you're using Canvas LMS (Learning Management System), please read this first:**
+**If you're using Canvas LMS, some files will NOT work correctly in Canvas.**
 
-Canvas has strict HTML/JavaScript restrictions for security reasons. When pasting HTML into Canvas:
-- ❌ JavaScript gets stripped (timers, interactive buttons won't work)
-- ❌ Event handlers removed (onclick, etc.)
-- ❌ localStorage doesn't work (progress tracking breaks)
+Canvas strips JavaScript for security. This breaks interactive features like buttons, timers, and progress tracking.
 
-**✅ WE'VE GOT YOU COVERED:**
-- **`canvas-safe-components.html`** - Components that work perfectly in Canvas
-- **`CANVAS_COMPATIBILITY_GUIDE.md`** - Complete guide for Canvas users
-- Shows Canvas-native alternatives (Quizzes, Modules, etc.)
-- Explains what works and what doesn't
+### ✅ Canvas-Safe Files (Use These in Canvas):
+- ✅ All 5 lesson examples below (elementary, middle, high school)
+- ✅ Both teacher templates
+- ✅ `canvas-safe-components.html`
 
-**If using Canvas:**
-1. Read `CANVAS_COMPATIBILITY_GUIDE.md` first
-2. Use `canvas-safe-components.html` for your content
-3. Use Canvas's built-in features (Quizzes, Modules) for interactivity
+### ❌ NOT Canvas-Safe (Will Break in Canvas):
+- ❌ `kind-lesson-example.html` (has onclick handlers)
+- ❌ `complete-lesson-cellular-respiration.html` (has JavaScript)
+- ❌ `component-library.html` (has extensive JavaScript)
+- ❌ `universal-canvas-prototype.html` (demo only)
 
-**If NOT using Canvas (standalone HTML files):**
-- All lesson examples work as-is
-- Open files directly in browser
-- Full functionality available
+### 📋 Essential Canvas Resources:
+1. **`CANVAS_DEPLOYMENT_STATUS.md`** ⭐ **START HERE FOR CANVAS**
+   - Complete file-by-file compatibility report
+   - Shows exactly what works and what doesn't
+   - Tested deployment instructions
+
+2. **`CANVAS_COMPATIBILITY_GUIDE.md`**
+   - Why Canvas has restrictions
+   - Canvas-safe alternatives
+   - How to convert non-safe files
+
+3. **`canvas-safe-components.html`**
+   - 20+ ready-to-use components
+   - Zero JavaScript
+   - Copy-paste into Canvas
+
+**If using Canvas: Read `CANVAS_DEPLOYMENT_STATUS.md` before using ANY file.**
+
+**If NOT using Canvas:** All files work as standalone HTML - open directly in browser.
 
 ---
 
@@ -79,63 +91,66 @@ Canvas has strict HTML/JavaScript restrictions for security reasons. When pastin
 ### 🌟 Complete Lesson Examples (Just Open and Look!)
 
 **Elementary (Grades 2-3):**
-- `elementary-kindness-lesson.html` - Grade 3: Being Kind to Others (SEL)
+- ✅ `elementary-kindness-lesson.html` - Grade 3: Being Kind to Others (SEL) **CANVAS-SAFE**
   - Warm, gentle, age-appropriate
   - Simple activities with choices
   - Big fonts, friendly language
   - Celebrates effort
-- `elementary-water-cycle-lesson.html` - Grade 2: The Amazing Water Cycle (Science)
+- ✅ `elementary-water-cycle-lesson.html` - Grade 2: The Amazing Water Cycle (Science) **CANVAS-SAFE**
   - Visual, engaging, fun examples
   - Connects to daily life
   - Big vocabulary support
   - Multiple activity options
 
 **Middle School (Grades 6-7):**
-- `middle-school-fractions-lesson.html` - Grade 6: Fractions in Real Life (Math)
+- ✅ `middle-school-fractions-lesson.html` - Grade 6: Fractions in Real Life (Math) **CANVAS-SAFE**
   - Connects math to everyday experiences
   - Clear, helpful examples
   - Encouraging support throughout
   - "Need help?" sections that don't judge
-- `middle-school-perspectives-lesson.html` - Grade 7: Understanding Different Perspectives (Social Studies)
+- ✅ `middle-school-perspectives-lesson.html` - Grade 7: Understanding Different Perspectives (Social Studies) **CANVAS-SAFE**
   - Real scenarios students relate to
   - Teaches empathy and critical thinking
   - Practical communication skills
   - Connects to current events and history
 
 **High School (Grades 9-12):**
-- `kind-lesson-example.html` - Why Do Leaves Change Color? (Science)
-  - Choice in how to learn
-  - Optional extensions (no pressure)
-  - Self-paced and supportive
-  - Celebrates curiosity
-- `high-school-poetry-analysis.html` - Understanding Poetry: "The Road Not Taken" (ELA)
+- ⚠️ `kind-lesson-example.html` - Why Do Leaves Change Color? (Science) **NOT CANVAS-SAFE**
+  - Has interactive choice buttons (requires JavaScript)
+  - Use as standalone HTML only
+  - For Canvas: Use high-school-poetry-analysis.html instead
+- ✅ `high-school-poetry-analysis.html` - Understanding Poetry: "The Road Not Taken" (ELA) **CANVAS-SAFE**
   - Warm introduction to literary analysis
   - Multiple interpretations welcomed
   - Scaffolded support available
   - Personal connection encouraged
 
 **For Teachers:**
-- `simple-teacher-template.html` - Easy-to-Customize Full Lesson Template
+- ✅ `simple-teacher-template.html` - Easy-to-Customize Full Lesson Template **CANVAS-SAFE**
   - No coding required—just replace text!
   - Clear comments explain everything
   - Keep what you need, delete what you don't
   - Make it yours in minutes
-- `quick-activity-template.html` - 15-20 Minute Quick Activity Template
+- ✅ `quick-activity-template.html` - 15-20 Minute Quick Activity Template **CANVAS-SAFE**
   - Perfect for bell ringers, exit tickets, reviews
   - Even simpler than the full template
   - Fast to customize
   - Minimal structure
 
-**For Canvas LMS Users:** ⭐ **Important**
-- `canvas-safe-components.html` - Canvas-Compatible Component Library
+**For Canvas LMS Users:** ⭐ **Important - Start Here**
+- ✅ `canvas-safe-components.html` - Canvas-Compatible Component Library **CANVAS-SAFE**
   - NO JavaScript - works perfectly in Canvas
   - Copy-paste directly into Canvas Rich Content Editor
   - All components tested in Canvas
   - Includes differentiation, activities, reflections, assessments
-- `CANVAS_COMPATIBILITY_GUIDE.md` - Complete Canvas Guide
-  - What works and what doesn't in Canvas
+- 📋 `CANVAS_DEPLOYMENT_STATUS.md` - **READ THIS FIRST IF USING CANVAS**
+  - Complete file-by-file compatibility report
+  - Tested deployment instructions for each file
+  - Shows exactly what works and what breaks
+- 📖 `CANVAS_COMPATIBILITY_GUIDE.md` - Complete Canvas Guide
+  - Why Canvas has restrictions
   - Canvas-native alternatives (Quizzes, Modules)
-  - Step-by-step deployment instructions
+  - How to convert non-safe files
   - Troubleshooting common Canvas issues
 
 ---
@@ -227,16 +242,21 @@ That's it. No configuration panels. No complex setup. Just clear structure you c
 - **`TROUBLESHOOTING_GUIDE.md`** - When things go wrong
 - **`parent-letter-template.md`** - Communicate with families
 
-### For Canvas LMS Users ⭐
-- **`CANVAS_COMPATIBILITY_GUIDE.md`** - Essential reading for Canvas users
-  - What works and what doesn't in Canvas
+### For Canvas LMS Users ⭐ **CRITICAL**
+- **`CANVAS_DEPLOYMENT_STATUS.md`** - **START HERE** - File-by-file compatibility report
+  - Complete list of what works in Canvas and what doesn't
+  - Tested deployment instructions for each file
+  - Specific JavaScript issues identified
+  - Canvas-safe alternatives provided
+- **`CANVAS_COMPATIBILITY_GUIDE.md`** - Complete Canvas guide
+  - Why Canvas has restrictions
   - Canvas-safe alternatives to JavaScript features
-  - Step-by-step deployment instructions
+  - How to convert non-safe files
   - Troubleshooting common Canvas issues
 - **`canvas-safe-components.html`** - Ready-to-use Canvas components
+  - 20+ components, zero JavaScript
   - Copy-paste directly into Canvas
-  - No JavaScript - all Canvas-compatible
-  - Complete component library
+  - All tested and verified
 
 ### For Students
 - **`STUDENT_TUTORIAL.md`** - How students use learning pages
