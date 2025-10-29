@@ -3,311 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Lesson Title Here</title>
-    <style>
-        /*
-        ============================================
-        SIMPLE TEACHER TEMPLATE
-        ============================================
-
-        HOW TO CUSTOMIZE THIS TEMPLATE:
-
-        1. Change the title above (line 6)
-        2. Scroll down and replace ALL CAPS TEXT with your content
-        3. Save your file with a new name
-        4. Share with students!
-
-        THAT'S IT! No coding needed.
-
-        TIPS:
-        - Keep the structure (don't delete the divs)
-        - Just replace the text inside them
-        - You can delete entire sections you don't need
-        - Preview in your browser as you work
-
-        ============================================
-        */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
-            color: #2d3748;
-            background: #f7fafc;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Header - The welcome section */
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
-            border-radius: 16px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 12px;
-        }
-
-        .header p {
-            font-size: 1.15em;
-            opacity: 0.95;
-        }
-
-        /* Section - Each part of your lesson */
-        .section {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .section h2 {
-            color: #5a67d8;
-            margin-bottom: 15px;
-            font-size: 1.6em;
-        }
-
-        .section p {
-            margin-bottom: 15px;
-            font-size: 1.05em;
-        }
-
-        .section ul, .section ol {
-            margin: 15px 0 15px 25px;
-        }
-
-        .section li {
-            margin-bottom: 10px;
-        }
-
-        /* Highlight box - For important information */
-        .highlight {
-            background: #e6fffa;
-            border-left: 4px solid #38b2ac;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        /* Help box - For supportive messages */
-        .help {
-            background: #fff5eb;
-            border-left: 4px solid #f59e0b;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        /* Activity box - For things students do */
-        .activity {
-            background: #ede9fe;
-            border-left: 4px solid #8b5cf6;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        /* Button - For links or actions */
-        .button {
-            display: inline-block;
-            background: #5a67d8;
-            color: white;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            transition: all 0.2s;
-        }
-
-        .button:hover {
-            background: #4c51bf;
-            transform: translateY(-1px);
-        }
-
-        /* Celebration - End of lesson */
-        .celebration {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 25px;
-        }
-
-        .celebration h2 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        /* Mobile friendly */
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 1.6em;
-            }
-
-            .section {
-                padding: 20px;
-            }
-        }
-    </style>
+    <title>Simple Teacher Template - Canvas LMS Compatible</title>
 </head>
 <body>
-    <div class="container">
+    <!--
+    ============================================
+    SIMPLE TEACHER TEMPLATE
+    ============================================
+
+    ✅ 100% Canvas LMS Compatible
+    ✅ No JavaScript - all inline CSS
+    ✅ Mobile-responsive and accessible
+    ✅ Based on Gradient Canvas HTML Standard
+
+    HOW TO USE THIS TEMPLATE:
+
+    1. Save a copy with a new name (like "math-fractions-lesson.html")
+    2. Find and replace PLACEHOLDER TEXT (in ALL CAPS)
+    3. Customize the emoji in the hero banner
+    4. Replace example content with your lesson content
+    5. Delete sections you don't need
+    6. Upload to Canvas!
+
+    CUSTOMIZATION TIPS:
+    - Change colors by modifying the gradient values
+    - Add/remove learning objectives as needed
+    - Copy and paste sections to add more content
+    - Keep the three-step structure (Learn/Apply/Reflect) for consistency
+
+    ============================================
+    -->
+
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.7; color: #2d3748; max-width: 100%; margin: 0 auto; padding: 0;">
 
         <!-- ============================================
-             HEADER SECTION
-             Change the title and description
+             HERO BANNER
+             Customize: Change title, emoji, grade level, subject
              ============================================ -->
-        <div class="header">
-            <h1>YOUR LESSON TITLE HERE</h1>
-            <p>Grade Level | Subject | About XX minutes</p>
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px 40px; text-align: center; border-radius: 12px; margin: 0 0 20px 0;" role="banner" aria-labelledby="lesson-title">
+            <div style="font-size: 3em; margin-bottom: 15px;" role="img" aria-label="Icon">📚</div>
+            <h1 id="lesson-title" style="margin: 0 0 15px 0; font-size: 2.5em; line-height: 1.2;">YOUR LESSON TITLE HERE</h1>
+            <p style="margin: 0; font-size: 1.2em;">Grade Level | Subject | About XX minutes</p>
         </div>
 
         <!-- ============================================
-             WELCOME SECTION
-             Greet your students warmly
+             LEARNING TARGETS
+             List 3-5 specific, measurable objectives
              ============================================ -->
-        <div class="section">
-            <h2>💙 Welcome!</h2>
-            <p>WRITE A WARM WELCOME MESSAGE HERE. Tell students what they'll learn and why it matters to them.</p>
-            <p>Example: "Today you're going to discover something amazing about [TOPIC]. By the end, you'll be able to [LEARNING GOAL]."</p>
-
-            <div class="help">
-                <p><strong>Remember:</strong> ADD ANY HELPFUL INFORMATION students need before starting. This could be materials needed, time expectations, or encouragement!</p>
-            </div>
-        </div>
-
-        <!-- ============================================
-             MAIN CONTENT SECTION 1
-             Your first main teaching point
-             Copy this section if you need more!
-             ============================================ -->
-        <div class="section">
-            <h2>SECTION TITLE (Example: The Main Idea)</h2>
-
-            <p>WRITE YOUR MAIN EXPLANATION HERE. Keep it clear and simple.</p>
-
-            <div class="highlight">
-                <p><strong>KEY POINT:</strong> Use this box to highlight the most important information students need to remember.</p>
-            </div>
-
-            <p>Continue with more explanation if needed. Break it into short paragraphs.</p>
-
-            <ul>
-                <li>You can add bullet points</li>
-                <li>To list important items</li>
-                <li>Keep them short and clear</li>
+        <div style="background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); padding: 25px 20px; margin-bottom: 25px; border-radius: 8px; text-align: center;" role="region" aria-labelledby="targets-heading">
+            <h2 id="targets-heading" style="margin: 0 0 10px 0; color: #2d3748; font-size: 1.8em;">🎯 By the end of this lesson, you will be able to:</h2>
+            <ul style="list-style: none; padding: 0; margin: 15px 0 0 0; color: #4a5568; font-size: 1.05em; line-height: 1.9;">
+                <li style="margin: 10px 0;">✓ LEARNING OBJECTIVE 1</li>
+                <li style="margin: 10px 0;">✓ LEARNING OBJECTIVE 2</li>
+                <li style="margin: 10px 0;">✓ LEARNING OBJECTIVE 3</li>
+                <li style="margin: 10px 0;">✓ LEARNING OBJECTIVE 4 (optional)</li>
             </ul>
         </div>
 
         <!-- ============================================
-             EXAMPLE SECTION
-             Show students a concrete example
+             WELCOME MESSAGE
+             Write a warm, encouraging introduction
              ============================================ -->
-        <div class="section">
-            <h2>EXAMPLE SECTION TITLE (Example: Let's See an Example)</h2>
-
-            <p>WRITE YOUR EXAMPLE HERE. Students learn best from specific, concrete examples.</p>
-
-            <div class="highlight">
-                <p><strong>Example:</strong> [YOUR DETAILED EXAMPLE WITH STEP-BY-STEP EXPLANATION]</p>
-            </div>
-
-            <p>Explain what makes this example work and what students should notice.</p>
+        <div style="background: white; border-left: 5px solid #667eea; padding: 20px; margin-bottom: 20px; border-radius: 8px;" role="region" aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading" style="margin: 0 0 15px 0; color: #667eea; font-size: 1.4em;">💙 Welcome!</h2>
+            <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">WRITE YOUR WELCOME MESSAGE HERE. Greet students warmly and explain what they'll learn today. Make it personal and encouraging!</p>
+            <p style="margin: 0; font-size: 1.1em; line-height: 1.8;">Example: "Today you're going to discover something amazing about [TOPIC]. By the end, you'll be able to [SKILL]. This lesson will take about [TIME], and you're going to do great!"</p>
         </div>
 
         <!-- ============================================
-             ACTIVITY SECTION
-             What students will do
+             THREE-STEP LEARNING JOURNEY
+             This structure follows best practices:
+             Step 1 (Blue) = Learn new content
+             Step 2 (Green) = Apply/Practice
+             Step 3 (Purple) = Reflect/Extend
              ============================================ -->
-        <div class="section">
-            <h2>YOUR ACTIVITY TITLE (Example: Now It's Your Turn!)</h2>
+        <div style="background: linear-gradient(135deg, #f6f9fc 0%, #e9ecef 100%); padding: 30px 20px; margin-bottom: 25px; border-radius: 8px;" role="region" aria-labelledby="journey-heading">
+            <h2 id="journey-heading" style="margin: 0 0 20px 0; color: #2d3748; font-size: 1.6em; text-align: center;">📚 Your Learning Journey</h2>
 
-            <p>EXPLAIN WHAT STUDENTS WILL DO. Be specific and clear.</p>
+            <!-- ============================================
+                 STEP 1: LEARN (BLUE)
+                 Present new information, concepts, examples
+                 ============================================ -->
+            <div style="background: white; border-top: 5px solid #3498DB; padding: 25px 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 15px 0; color: #3498DB; font-size: 1.4em;">Step 1: Learn the Concept 📖</h3>
 
-            <div class="activity">
-                <h3>Your Task:</h3>
-                <ol>
-                    <li>First step - be specific about what to do</li>
-                    <li>Second step - include details</li>
-                    <li>Third step - tell them what success looks like</li>
-                </ol>
+                <h4 style="margin: 20px 0 10px 0; color: #2d3748; font-size: 1.25em;">SECTION TITLE (Example: What Is...?)</h4>
+                <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">WRITE YOUR MAIN EXPLANATION HERE. Break complex ideas into simple, clear language. Use examples students can relate to.</p>
+
+                <!-- Key Concept Box -->
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 15px; margin: 20px 0; border-left: 5px solid #2196f3;">
+                    <h5 style="margin: 0 0 12px 0; color: #1565c0; font-size: 1.2em;">💡 Key Concept</h5>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;"><strong>Highlight the most important idea here.</strong> What do students absolutely need to understand?</p>
+                </div>
+
+                <h4 style="margin: 30px 0 10px 0; color: #2d3748; font-size: 1.25em;">EXAMPLE SECTION TITLE</h4>
+                <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">Show a concrete example. Students learn best from specific, real-world examples they can understand.</p>
+
+                <!-- Example Box -->
+                <div style="background: #fff3cd; padding: 20px; border-radius: 15px; margin: 20px 0; border-left: 5px solid #ffc107;">
+                    <h5 style="margin: 0 0 12px 0; color: #f57c00; font-size: 1.2em;">Example:</h5>
+                    <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">YOUR DETAILED EXAMPLE HERE</p>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;">Explain what makes this example work and what students should notice.</p>
+                </div>
+
+                <!-- Optional: Add more examples, explanations, diagrams, etc. -->
+                <p style="margin: 0; font-size: 1.1em; line-height: 1.8;">Continue with additional explanation, examples, or clarification as needed.</p>
             </div>
 
-            <div class="help">
-                <p><strong>Need help?</strong> TELL STUDENTS where to get help if they're stuck. This could be: re-reading above, asking a friend, watching a video, or contacting you.</p>
+            <!-- ============================================
+                 STEP 2: APPLY (GREEN)
+                 Practice, activities, problem-solving
+                 ============================================ -->
+            <div style="background: white; border-top: 5px solid #52C75A; padding: 25px 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 15px 0; color: #52C75A; font-size: 1.4em;">Step 2: Apply Your Knowledge ✏️</h3>
+
+                <h4 style="margin: 20px 0 10px 0; color: #2d3748; font-size: 1.25em;">ACTIVITY TITLE (Example: Now It's Your Turn!)</h4>
+                <p style="margin: 0 0 20px 0; font-size: 1.1em; line-height: 1.8;">EXPLAIN WHAT STUDENTS WILL DO. Be specific and clear about expectations.</p>
+
+                <!-- Activity Box -->
+                <div style="background: #d4edda; padding: 20px; border-radius: 15px; margin: 20px 0; border-left: 5px solid #28a745;">
+                    <h5 style="margin: 0 0 12px 0; color: #155724; font-size: 1.2em;">Your Task</h5>
+                    <ol style="margin: 0 0 0 25px; font-size: 1.1em; line-height: 1.9;">
+                        <li style="margin-bottom: 10px;">STEP 1: Be specific about what to do</li>
+                        <li style="margin-bottom: 10px;">STEP 2: Include clear details</li>
+                        <li style="margin-bottom: 10px;">STEP 3: Tell them what success looks like</li>
+                    </ol>
+                </div>
+
+                <!-- Help Box -->
+                <div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <p style="margin: 0 0 10px 0; font-size: 1.1em;"><strong>💙 Need Help?</strong></p>
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;">If you're stuck, try these strategies:</p>
+                    <ul style="margin: 10px 0 0 25px; font-size: 1.1em; line-height: 1.8;">
+                        <li>Review the examples in Step 1</li>
+                        <li>Talk with a classmate</li>
+                        <li>Ask your teacher for guidance</li>
+                        <li>Break it into smaller steps</li>
+                    </ul>
+                </div>
+
+                <!-- Optional: Choice Activity -->
+                <h4 style="margin: 30px 0 10px 0; color: #2d3748; font-size: 1.25em;">Choose Your Activity (Optional)</h4>
+                <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">If you want to offer choices, present 2-3 options here:</p>
+
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <h5 style="margin: 0 0 10px 0; color: #1565c0; font-size: 1.1em;">Choice 1: ACTIVITY NAME</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.8;">Brief description of this option and who it's best for.</p>
+                </div>
+
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <h5 style="margin: 0 0 10px 0; color: #1565c0; font-size: 1.1em;">Choice 2: ACTIVITY NAME</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.8;">Brief description of this option and who it's best for.</p>
+                </div>
             </div>
 
-            <!-- If you want a button/link -->
-            <p style="margin-top: 20px;">
-                <a href="YOUR-LINK-HERE" class="button">Button Text (Example: Submit Your Work)</a>
-            </p>
+            <!-- ============================================
+                 STEP 3: REFLECT (PURPLE)
+                 Reflection, extension, assessment
+                 ============================================ -->
+            <div style="background: white; border-top: 5px solid #9B59B6; padding: 25px 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 15px 0; color: #9B59B6; font-size: 1.4em;">Step 3: Reflect & Extend 🌟</h3>
+
+                <h4 style="margin: 20px 0 10px 0; color: #2d3748; font-size: 1.25em;">Reflection Questions</h4>
+                <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">Think about these questions. You can write your answers, discuss with others, or just think quietly:</p>
+
+                <div style="background: #f3e5f5; padding: 20px; border-radius: 15px; margin: 20px 0; border-left: 5px solid #9b59b6;">
+                    <ul style="margin: 0; font-size: 1.1em; line-height: 1.9;">
+                        <li style="margin-bottom: 10px;">What was the most interesting thing you learned today?</li>
+                        <li style="margin-bottom: 10px;">What's still confusing or unclear?</li>
+                        <li style="margin-bottom: 10px;">How could you use this knowledge in real life?</li>
+                        <li style="margin-bottom: 10px;">What would you like to learn more about?</li>
+                    </ul>
+                </div>
+
+                <h4 style="margin: 30px 0 10px 0; color: #2d3748; font-size: 1.25em;">Want to Go Deeper? (Optional)</h4>
+                <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">For students who want to explore further, add extension activities here:</p>
+
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;"><strong>Extension Activity:</strong> DESCRIBE AN OPTIONAL CHALLENGE OR DEEPER EXPLORATION OPPORTUNITY</p>
+                </div>
+
+                <div style="background: #d4edda; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <p style="margin: 0; font-size: 1.1em; line-height: 1.8;"><strong>Remember:</strong> Extensions are optional! You've already learned what you need to learn. These are for extra curiosity and exploration. 🎉</p>
+                </div>
+            </div>
         </div>
 
         <!-- ============================================
-             OPTIONAL EXTENSION SECTION
-             For students who want to go deeper
-             You can delete this if you don't need it!
+             COMPLETION CELEBRATION
+             End on a positive, encouraging note!
              ============================================ -->
-        <div class="section">
-            <h2>🌟 Want to Go Deeper? (Optional!)</h2>
-
-            <p>ADD OPTIONAL EXTENSION ACTIVITIES HERE. Make it clear these are extras, not required.</p>
-
-            <div class="highlight">
-                <p><strong>Remember:</strong> These are bonus activities because you're curious! You've already learned what you need to learn. 🎉</p>
-            </div>
-        </div>
-
-        <!-- ============================================
-             CELEBRATION / CLOSING
-             End on a positive, encouraging note
-             ============================================ -->
-        <div class="celebration">
-            <h2>🎉 Great Work!</h2>
-            <p>WRITE AN ENCOURAGING CLOSING MESSAGE. Celebrate what students learned and accomplished.</p>
-            <p style="margin-top: 15px; font-size: 1.2em;">Keep being awesome! 🌟</p>
+        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 25px;" role="region" aria-labelledby="celebration-heading">
+            <h2 id="celebration-heading" style="margin: 0 0 15px 0; font-size: 2em;">🎉 You Did It!</h2>
+            <p style="font-size: 1.2em; margin: 0 0 15px 0; line-height: 1.8;">WRITE YOUR ENCOURAGING CLOSING MESSAGE HERE</p>
+            <p style="margin: 0 0 15px 0; font-size: 1.1em; line-height: 1.8;">Celebrate what students learned and accomplished. Acknowledge their effort!</p>
+            <div style="font-size: 2em; margin-top: 15px;">Keep being awesome! 🌟</div>
         </div>
 
     </div>
 
-    <!-- ============================================
-         YOU'RE DONE!
+    <!--
+    ============================================
+    NEXT STEPS FOR USING THIS TEMPLATE:
+    ============================================
 
-         NEXT STEPS:
-         1. Preview this file in your browser
-         2. Make sure everything looks good
-         3. Save with a clear name like "math-fractions-lesson.html"
-         4. Share with students via:
-            - Google Classroom (upload as file)
-            - Email (attach the file)
-            - LMS (upload to your course)
-            - Print it out!
+    1. SAVE AS: Give your file a descriptive name
+       Example: "grade6-math-fractions.html"
 
-         TIPS FOR SHARING:
-         - This is just ONE FILE - super easy to share!
-         - Students can open it in any web browser
-         - Works on computers, tablets, and phones
-         - No internet needed after downloading
-         - Students can't accidentally edit it
+    2. CUSTOMIZE CONTENT:
+       - Replace all PLACEHOLDER TEXT with your lesson content
+       - Change the emoji in the hero banner to match your subject
+       - Adjust colors if desired (modify gradient values)
+       - Delete sections you don't need
 
-         QUESTIONS? Check the Teacher Quick Start Guide!
-         ============================================ -->
+    3. TEST IN CANVAS:
+       - Upload to Canvas as a Page
+       - Click "Edit" then "<>" for HTML view
+       - Paste your entire HTML file
+       - Preview to make sure it looks good
+       - Publish!
+
+    4. SHARE:
+       - This file works in any LMS, not just Canvas
+       - Students can view on any device
+       - No plugins or special software needed
+
+    TIPS FOR SUCCESS:
+    ✅ Keep the three-step structure (Learn/Apply/Reflect)
+    ✅ Use clear, simple language
+    ✅ Add specific examples students can relate to
+    ✅ Offer choice when possible
+    ✅ Be warm and encouraging throughout
+    ✅ End with celebration and positivity
+
+    TECHNICAL NOTES:
+    ✅ 100% Canvas LMS compatible (no JavaScript)
+    ✅ All CSS is inline (won't be stripped by Canvas)
+    ✅ Mobile-responsive design
+    ✅ WCAG 2.2 AA accessible
+    ✅ Uses system fonts (loads instantly)
+
+    Questions? Check the documentation or ask for help!
+    ============================================
+    -->
 </body>
 </html>

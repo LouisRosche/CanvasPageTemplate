@@ -4,611 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Poetry - High School ELA</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.95;
-        }
-
-        .content {
-            padding: 30px;
-        }
-
-        .welcome {
-            background: #f8f9fa;
-            border-left: 5px solid #667eea;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-        }
-
-        .welcome h2 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .poem-box {
-            background: #fefcf5;
-            border: 2px solid #e8d5b7;
-            padding: 30px;
-            margin: 20px 0;
-            border-radius: 8px;
-            font-family: 'Georgia', serif;
-            line-height: 1.8;
-        }
-
-        .poem-box .title {
-            font-weight: bold;
-            font-size: 1.3em;
-            margin-bottom: 5px;
-            color: #764ba2;
-        }
-
-        .poem-box .author {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .poem-box .poem-line {
-            margin-left: 20px;
-            margin-bottom: 8px;
-        }
-
-        .kind-box {
-            background: #e8f5e9;
-            border-left: 5px solid #4caf50;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-
-        .kind-box strong {
-            color: #2e7d32;
-        }
-
-        .thinking-prompts {
-            background: #fff3e0;
-            border: 2px solid #ff9800;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .thinking-prompts h3 {
-            color: #e65100;
-            margin-bottom: 15px;
-        }
-
-        .thinking-prompts ul {
-            margin-left: 20px;
-        }
-
-        .thinking-prompts li {
-            margin-bottom: 10px;
-        }
-
-        .choice-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .choice-card {
-            background: white;
-            border: 3px solid #667eea;
-            padding: 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .choice-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .choice-card h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-
-        .example-analysis {
-            background: #f3e5f5;
-            border: 2px solid #9c27b0;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .example-analysis h4 {
-            color: #6a1b9a;
-            margin-bottom: 10px;
-        }
-
-        .support-box {
-            background: #e3f2fd;
-            border-left: 5px solid #2196f3;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-
-        .support-box h3 {
-            color: #1565c0;
-            margin-bottom: 15px;
-        }
-
-        .sentence-starters {
-            background: #fce4ec;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .sentence-starters p {
-            margin: 8px 0;
-            padding-left: 20px;
-        }
-
-        .extension {
-            background: #fff8e1;
-            border: 2px solid #ffa000;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .extension h3 {
-            color: #f57c00;
-            margin-bottom: 15px;
-        }
-
-        .reflection-space {
-            background: #f5f5f5;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            border: 2px dashed #999;
-        }
-
-        .progress {
-            background: #667eea;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .progress-dots {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-        }
-
-        .dot.active {
-            background: white;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .choice-section {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>💭 Understanding Poetry</h1>
-            <p>Discovering Meaning in "The Road Not Taken" by Robert Frost</p>
-            <p>High School English Language Arts | About 45 minutes</p>
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.7; color: #2c3e50; max-width: 100%; margin: 0 auto; padding: 0;">
+
+        <!-- HERO BANNER -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px 40px; text-align: center; border-radius: 12px; margin: 0 0 20px 0;" role="banner" aria-labelledby="lesson-title">
+            <div style="font-size: 3em; margin-bottom: 15px;" role="img" aria-label="Book icon">📚</div>
+            <h1 id="lesson-title" style="margin: 0 0 15px 0; font-size: 2.5em; line-height: 1.2;">Understanding Poetry</h1>
+            <p style="margin: 0; font-size: 1.2em;">How to Read, Analyze, and Appreciate Poetry</p>
+            <p style="margin: 10px 0 0 0; font-size: 1.1em;">High School ELA | About 45 minutes</p>
         </div>
 
-        <div class="progress">
-            <div>Your Journey Through This Lesson</div>
-            <div class="progress-dots">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
+        <!-- LEARNING TARGETS -->
+        <div style="background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); padding: 25px 20px; margin-bottom: 25px; border-radius: 8px; text-align: center;" role="region" aria-labelledby="targets-heading">
+            <h2 id="targets-heading" style="margin: 0 0 10px 0; color: #2d3748; font-size: 1.8em;">🎯 Learning Objectives:</h2>
+            <ul style="list-style: none; padding: 0; margin: 15px 0 0 0; color: #4a5568; font-size: 1.05em; line-height: 1.9;">
+                <li style="margin: 10px 0;">✓ Identify and explain poetic devices (imagery, metaphor, tone)</li>
+                <li style="margin: 10px 0;">✓ Analyze how form contributes to meaning</li>
+                <li style="margin: 10px 0;">✓ Support interpretations with textual evidence</li>
+                <li style="margin: 10px 0;">✓ Write a clear, evidence-based poetic analysis</li>
+            </ul>
+        </div>
+
+        <!-- WELCOME MESSAGE -->
+        <div style="background: white; border-left: 5px solid #667eea; padding: 20px; margin-bottom: 20px; border-radius: 8px;" role="region" aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading" style="margin: 0 0 15px 0; color: #667eea; font-size: 1.4em;">💙 Welcome</h2>
+            <p style="margin: 0; font-size: 1.05em; line-height: 1.8;">Poetry can feel intimidating, but it's really just another way humans express complex thoughts and emotions in concentrated form. Today, you'll learn practical strategies for unlocking meaning in poetry—strategies that work whether you're reading Shakespeare or contemporary spoken word.</p>
+        </div>
+
+        <!-- THREE-STEP LEARNING JOURNEY -->
+        <div style="background: linear-gradient(135deg, #f6f9fc 0%, #e9ecef 100%); padding: 30px 20px; margin-bottom: 25px; border-radius: 8px;" role="region" aria-labelledby="journey-heading">
+            <h2 id="journey-heading" style="margin: 0 0 20px 0; color: #2d3748; font-size: 1.6em; text-align: center;">📚 Your Learning Journey</h2>
+
+            <!-- STEP 1: LEARN -->
+            <div style="background: white; border-top: 5px solid #3498DB; padding: 25px 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 15px 0; color: #3498DB; font-size: 1.4em;">Step 1: Learn the Tools 📖</h3>
+
+                <h4 style="margin: 20px 0 10px 0; color: #2d3748; font-size: 1.25em;">How to Approach a Poem</h4>
+                <p style="margin: 0 0 20px 0; font-size: 1.05em; line-height: 1.8;">Unlike prose, poetry is meant to be read multiple times. Each reading reveals new layers. Here's a systematic approach:</p>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #3498DB;">
+                    <h5 style="margin: 0 0 10px 0; color: #3498DB; font-size: 1.15em;">First Reading: Get the Gist</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.7;">Read through once without stopping. What's the general subject? What's your initial emotional response?</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #3498DB;">
+                    <h5 style="margin: 0 0 10px 0; color: #3498DB; font-size: 1.15em;">Second Reading: Look Closely</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.7;">Notice specific words, images, sounds. What words are emphasized? What patterns do you see?</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #3498DB;">
+                    <h5 style="margin: 0 0 10px 0; color: #3498DB; font-size: 1.15em;">Third Reading: Analyze</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.7;">How do the parts work together? What is the poem trying to communicate? How does the form support the meaning?</p>
+                </div>
+
+                <h4 style="margin: 30px 0 10px 0; color: #2d3748; font-size: 1.25em;">Key Poetic Elements</h4>
+
+                <div style="background: #fefcf5; border: 2px solid #e8d5b7; padding: 20px; margin: 15px 0; border-radius: 8px;">
+                    <h5 style="margin: 0 0 10px 0; color: #764ba2; font-size: 1.15em;">Imagery</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.7;"><strong>Definition:</strong> Language that appeals to the senses (sight, sound, taste, touch, smell).</p>
+                    <p style="margin: 10px 0 0 0; font-size: 1.05em; line-height: 1.7;"><strong>Why it matters:</strong> Images create visceral emotional responses and make abstract ideas concrete.</p>
+                </div>
+
+                <div style="background: #fefcf5; border: 2px solid #e8d5b7; padding: 20px; margin: 15px 0; border-radius: 8px;">
+                    <h5 style="margin: 0 0 10px 0; color: #764ba2; font-size: 1.15em;">Metaphor & Simile</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.7;"><strong>Definition:</strong> Comparing two unlike things to reveal hidden connections. Simile uses "like" or "as"; metaphor implies the comparison.</p>
+                    <p style="margin: 10px 0 0 0; font-size: 1.05em; line-height: 1.7;"><strong>Why it matters:</strong> Comparisons help us see familiar things in new ways.</p>
+                </div>
+
+                <div style="background: #fefcf5; border: 2px solid #e8d5b7; padding: 20px; margin: 15px 0; border-radius: 8px;">
+                    <h5 style="margin: 0 0 10px 0; color: #764ba2; font-size: 1.15em;">Tone & Mood</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.7;"><strong>Tone:</strong> The speaker's attitude toward the subject. <strong>Mood:</strong> The emotional atmosphere the poem creates for the reader.</p>
+                    <p style="margin: 10px 0 0 0; font-size: 1.05em; line-height: 1.7;"><strong>Why it matters:</strong> Tone shapes how we interpret meaning.</p>
+                </div>
+
+                <div style="background: #fefcf5; border: 2px solid #e8d5b7; padding: 20px; margin: 15px 0; border-radius: 8px;">
+                    <h5 style="margin: 0 0 10px 0; color: #764ba2; font-size: 1.15em;">Form & Structure</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.7;"><strong>Definition:</strong> How the poem is organized on the page—line breaks, stanzas, rhyme scheme, rhythm.</p>
+                    <p style="margin: 10px 0 0 0; font-size: 1.05em; line-height: 1.7;"><strong>Why it matters:</strong> Where a poet breaks a line affects emphasis and meaning. Form isn't decorative—it's functional.</p>
+                </div>
+            </div>
+
+            <!-- STEP 2: APPLY -->
+            <div style="background: white; border-top: 5px solid #52C75A; padding: 25px 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 15px 0; color: #52C75A; font-size: 1.4em;">Step 2: Analyze a Poem ✏️</h3>
+
+                <h4 style="margin: 20px 0 10px 0; color: #2d3748; font-size: 1.25em;">Sample Poem for Analysis</h4>
+
+                <div style="background: #fefcf5; border: 2px solid #e8d5b7; padding: 30px; margin: 20px 0; border-radius: 8px; font-family: Georgia, serif; line-height: 1.8;">
+                    <div style="font-weight: bold; font-size: 1.2em; margin-bottom: 5px; color: #764ba2;">"Hope" is the thing with feathers</div>
+                    <div style="font-style: italic; color: #666; margin-bottom: 20px;">by Emily Dickinson</div>
+
+                    <div style="margin-left: 20px;">
+                        <p style="margin: 8px 0;">"Hope" is the thing with feathers -</p>
+                        <p style="margin: 8px 0;">That perches in the soul -</p>
+                        <p style="margin: 8px 0;">And sings the tune without the words -</p>
+                        <p style="margin: 8px 0;">And never stops - at all -</p>
+                        <br>
+                        <p style="margin: 8px 0;">And sweetest - in the Gale - is heard -</p>
+                        <p style="margin: 8px 0;">And sore must be the storm -</p>
+                        <p style="margin: 8px 0;">That could abash the little Bird</p>
+                        <p style="margin: 8px 0;">That kept so many warm -</p>
+                        <br>
+                        <p style="margin: 8px 0;">I've heard it in the chillest land -</p>
+                        <p style="margin: 8px 0;">And on the strangest Sea -</p>
+                        <p style="margin: 8px 0;">Yet - never - in Extremity,</p>
+                        <p style="margin: 8px 0;">It asked a crumb - of me.</p>
+                    </div>
+                </div>
+
+                <h4 style="margin: 30px 0 10px 0; color: #2d3748; font-size: 1.25em;">Guided Analysis Questions</h4>
+
+                <div style="background: #fff3e0; border: 2px solid #ff9800; padding: 20px; margin: 20px 0; border-radius: 8px;">
+                    <h5 style="margin: 0 0 15px 0; color: #E65100; font-size: 1.15em;">1. Central Metaphor</h5>
+                    <p style="margin: 0 0 10px 0; font-size: 1.05em; line-height: 1.7;"><strong>Question:</strong> What is hope being compared to? List specific details from the poem that develop this comparison.</p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <p style="margin: 0; font-size: 1.05em; line-height: 1.7;"><strong>Hint:</strong> Look at lines 1-2. What does "the thing with feathers" that "perches in the soul" suggest? What qualities of birds apply to hope?</p>
+                    </div>
+                </div>
+
+                <div style="background: #fff3e0; border: 2px solid #ff9800; padding: 20px; margin: 20px 0; border-radius: 8px;">
+                    <h5 style="margin: 0 0 15px 0; color: #E65100; font-size: 1.15em;">2. Imagery Analysis</h5>
+                    <p style="margin: 0 0 10px 0; font-size: 1.05em; line-height: 1.7;"><strong>Question:</strong> What specific images does Dickinson use? How do these images create mood?</p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <p style="margin: 0; font-size: 1.05em; line-height: 1.7;"><strong>Consider:</strong> "sings the tune," "sweetest in the Gale," "chillest land," "strangest Sea." What do these suggest about when we need hope most?</p>
+                    </div>
+                </div>
+
+                <div style="background: #fff3e0; border: 2px solid #ff9800; padding: 20px; margin: 20px 0; border-radius: 8px;">
+                    <h5 style="margin: 0 0 15px 0; color: #E65100; font-size: 1.15em;">3. Form & Sound</h5>
+                    <p style="margin: 0 0 10px 0; font-size: 1.05em; line-height: 1.7;"><strong>Question:</strong> Why do you think Dickinson uses dashes throughout? What effect do they create?</p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <p style="margin: 0; font-size: 1.05em; line-height: 1.7;"><strong>Think about:</strong> How do the dashes affect your reading pace? Do they create pauses? Emphasis? How does this relate to the poem's meaning?</p>
+                    </div>
+                </div>
+
+                <h4 style="margin: 30px 0 10px 0; color: #2d3748; font-size: 1.25em;">Your Turn: Write an Analysis Paragraph</h4>
+                <p style="margin: 0 0 15px 0; font-size: 1.05em; line-height: 1.8;">Choose ONE of the questions above and write a paragraph (5-7 sentences) that:</p>
+                <ul style="margin: 0 0 20px 25px; font-size: 1.05em; line-height: 1.9;">
+                    <li style="margin-bottom: 8px;">States a clear interpretation</li>
+                    <li style="margin-bottom: 8px;">Includes specific quotes from the poem as evidence</li>
+                    <li style="margin-bottom: 8px;">Explains how your evidence supports your interpretation</li>
+                    <li>Uses literary terminology accurately</li>
+                </ul>
+
+                <div style="background: #e8f5e9; border-left: 5px solid #4caf50; padding: 20px; margin: 20px 0; border-radius: 5px;">
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.8;"><strong style="color: #2e7d32;">💙 Sentence Starters:</strong> If you're not sure how to begin, try: "Dickinson uses the metaphor of... to suggest..." or "The imagery of... creates a mood of... which reinforces the idea that..." or "The form of the poem, particularly..., emphasizes..."</p>
+                </div>
+            </div>
+
+            <!-- STEP 3: REFLECT -->
+            <div style="background: white; border-top: 5px solid #9B59B6; padding: 25px 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 15px 0; color: #9B59B6; font-size: 1.4em;">Step 3: Reflect & Connect 🌟</h3>
+
+                <h4 style="margin: 20px 0 10px 0; color: #2d3748; font-size: 1.25em;">Reflection Questions</h4>
+                <ul style="margin: 0 0 20px 0; font-size: 1.05em; line-height: 2;">
+                    <li style="margin-bottom: 10px;">What surprised you about this poem when you read it multiple times?</li>
+                    <li style="margin-bottom: 10px;">How does analyzing the parts (imagery, metaphor, form) change your understanding of the whole?</li>
+                    <li style="margin-bottom: 10px;">Can you think of a time when you experienced "hope" as Dickinson describes it? How does connecting your experience to the poem deepen your appreciation?</li>
+                </ul>
+
+                <div style="background: #f3e5f5; padding: 20px; border-radius: 15px; margin: 20px 0; border-left: 5px solid #9B59B6;">
+                    <h5 style="margin: 0 0 15px 0; color: #6a1b9a; font-size: 1.15em;">Keep Practicing</h5>
+                    <p style="margin: 0; font-size: 1.05em; line-height: 1.8;">Poetry analysis gets easier with practice. The more poems you read closely, the faster you'll recognize patterns and techniques. Remember: there's rarely one "right" interpretation—what matters is supporting your reading with evidence from the text.</p>
+                </div>
             </div>
         </div>
 
-        <div class="content">
-            <div class="welcome">
-                <h2>💙 Welcome!</h2>
-                <p>Poetry can feel mysterious at first—and that's okay! Today, we're going to explore one of America's most beloved poems together. You'll discover that understanding poetry isn't about finding the "one right answer." It's about exploring meaning, connecting with language, and discovering what the poem means to <em>you</em>.</p>
-
-                <p style="margin-top: 15px;"><strong>By the end of this lesson, you'll be able to:</strong></p>
-                <ul style="margin-left: 30px; margin-top: 10px;">
-                    <li>Explain what "The Road Not Taken" is about in your own words</li>
-                    <li>Identify and interpret key literary devices (metaphor, imagery, tone)</li>
-                    <li>Support your interpretation with evidence from the text</li>
-                    <li>Connect the poem's themes to your own life</li>
-                </ul>
-
-                <p style="margin-top: 15px;"><strong>Take your time.</strong> There's no rush. Read carefully, think deeply, and enjoy the journey! 🌟</p>
-            </div>
-
-            <!-- SECTION 1: FIRST ENCOUNTER -->
-            <div class="section">
-                <h2>📖 Step 1: Meet the Poem</h2>
-
-                <p>Let's start by simply reading the poem. Don't worry about analyzing it yet—just read it once for enjoyment.</p>
-
-                <div class="poem-box">
-                    <div class="title">The Road Not Taken</div>
-                    <div class="author">by Robert Frost (1916)</div>
-
-                    <div class="poem-line">Two roads diverged in a yellow wood,</div>
-                    <div class="poem-line">And sorry I could not travel both</div>
-                    <div class="poem-line">And be one traveler, long I stood</div>
-                    <div class="poem-line">And looked down one as far as I could</div>
-                    <div class="poem-line">To where it bent in the undergrowth;</div>
-                    <br>
-                    <div class="poem-line">Then took the other, as just as fair,</div>
-                    <div class="poem-line">And having perhaps the better claim,</div>
-                    <div class="poem-line">Because it was grassy and wanted wear;</div>
-                    <div class="poem-line">Though as for that the passing there</div>
-                    <div class="poem-line">Had worn them really about the same,</div>
-                    <br>
-                    <div class="poem-line">And both that morning equally lay</div>
-                    <div class="poem-line">In leaves no step had trodden black.</div>
-                    <div class="poem-line">Oh, I kept the first for another day!</div>
-                    <div class="poem-line">Yet knowing how way leads on to way,</div>
-                    <div class="poem-line">I doubted if I should ever come back.</div>
-                    <br>
-                    <div class="poem-line">I shall be telling this with a sigh</div>
-                    <div class="poem-line">Somewhere ages and ages hence:</div>
-                    <div class="poem-line">Two roads diverged in a wood, and I—</div>
-                    <div class="poem-line">I took the one less traveled by,</div>
-                    <div class="poem-line">And that has made all the difference.</div>
-                </div>
-
-                <div class="kind-box">
-                    <p><strong>💙 First Impressions Matter!</strong></p>
-                    <p>What did you notice? What stood out to you? There are no wrong answers here. Poetry speaks to each person differently, and your initial reaction is valuable! Maybe you noticed certain words, felt a particular emotion, or wondered about something. All of that is a great start!</p>
-                </div>
-
-                <div class="thinking-prompts">
-                    <h3>🤔 Quick Reflection (Just for You)</h3>
-                    <p>Take a moment to think about (or jot down):</p>
-                    <ul>
-                        <li>What emotion did this poem give you?</li>
-                        <li>What's one line that stuck with you?</li>
-                        <li>What do you think this poem is about, in one sentence?</li>
-                    </ul>
-                    <p style="margin-top: 15px;"><em>Remember: This is exploration, not a test! Your honest response is perfect.</em></p>
-                </div>
-            </div>
-
-            <!-- SECTION 2: UNDERSTANDING THE SURFACE -->
-            <div class="section">
-                <h2>🔍 Step 2: What's Happening? (The Literal Level)</h2>
-
-                <p>Before we dig into deeper meaning, let's make sure we understand what's literally happening in the poem. This is like getting our bearings before a hike!</p>
-
-                <div class="example-analysis">
-                    <h4>The Basic Story:</h4>
-                    <p><strong>Setting:</strong> A yellow wood (forest in autumn)</p>
-                    <p><strong>Situation:</strong> The speaker comes to a fork in the path—two roads splitting off</p>
-                    <p><strong>Action:</strong> The speaker looks down both paths, can't travel both, and chooses one</p>
-                    <p><strong>Reflection:</strong> Years later, the speaker looks back and says this choice "made all the difference"</p>
-                </div>
-
-                <div class="support-box">
-                    <h3>📚 Vocabulary Help</h3>
-                    <p><strong>Diverged:</strong> Split apart, went in different directions</p>
-                    <p><strong>Undergrowth:</strong> Plants and bushes growing beneath trees</p>
-                    <p><strong>As just as fair:</strong> Equally attractive or appealing</p>
-                    <p><strong>Wanted wear:</strong> Looked like it needed to be walked on (less traveled)</p>
-                    <p><strong>Trodden:</strong> Stepped on, walked over</p>
-                    <p><strong>Hence:</strong> From now, in the future</p>
-
-                    <p style="margin-top: 15px; color: #1565c0;"><strong>💡 Tip:</strong> If you're ever unsure about a word in a poem, look it up! Understanding the literal meaning is the foundation for everything else.</p>
-                </div>
-
-                <div class="kind-box">
-                    <p><strong>✅ Check Your Understanding</strong></p>
-                    <p>Can you explain what literally happens in the poem to a friend? If yes—great! If you're still a bit fuzzy, that's totally normal. Read the poem again slowly, and it will start to click. You're building understanding! 🌱</p>
-                </div>
-            </div>
-
-            <!-- SECTION 3: DEEPER MEANING -->
-            <div class="section">
-                <h2>💎 Step 3: What Does It Really Mean? (Interpretation)</h2>
-
-                <p>Now for the exciting part! Frost isn't just talking about two paths in the woods. He's using the roads as a <strong>metaphor</strong>—a comparison that helps us understand something deeper.</p>
-
-                <div class="example-analysis">
-                    <h4>🗺️ The Metaphor Explained:</h4>
-                    <p><strong>The Two Roads =</strong> Life choices, decisions we face</p>
-                    <p><strong>The Yellow Wood =</strong> A moment in life when you have to choose</p>
-                    <p><strong>Choosing One Path =</strong> Making a decision knowing you can't do everything</p>
-                    <p><strong>Looking Back =</strong> Reflecting on our past choices</p>
-                </div>
-
-                <p style="margin-top: 20px;">This poem is about <strong>choice and consequence</strong>. It's about:</p>
-                <ul style="margin-left: 30px; margin-top: 10px; line-height: 2;">
-                    <li>The difficulty of making decisions</li>
-                    <li>The impossibility of knowing what would have happened if we chose differently</li>
-                    <li>How we tell stories about our choices later in life</li>
-                    <li>The human desire to believe our choices matter</li>
-                </ul>
-
-                <div class="thinking-prompts">
-                    <h3>🤔 Going Deeper: Discussion Questions</h3>
-                    <p>Think about these (or discuss with a partner if your teacher says so):</p>
-                    <ul>
-                        <li><strong>The Twist:</strong> The speaker says the road was "less traveled by," but earlier says both roads "equally lay" and were worn "about the same." Why might the speaker remember it differently later?</li>
-                        <li><strong>The Tone:</strong> What does the "sigh" in the last stanza suggest? Is it a happy sigh or a regretful one?</li>
-                        <li><strong>The Title:</strong> Why is it called "The Road Not Taken" instead of "The Road I Took"? What does that tell us about human nature?</li>
-                    </ul>
-                </div>
-
-                <div class="kind-box">
-                    <p><strong>💙 Multiple Interpretations Are Valid!</strong></p>
-                    <p>Scholars actually disagree about this poem! Some see it as celebrating individuality ("I took the road less traveled!"). Others see it as showing how we rationalize our choices after the fact. <strong>Both can be supported with evidence.</strong> That's what makes poetry rich and interesting!</p>
-                    <p style="margin-top: 10px;">As long as you can point to specific lines in the poem to support your interpretation, you're doing it right. 🎯</p>
-                </div>
-            </div>
-
-            <!-- SECTION 4: LITERARY DEVICES -->
-            <div class="section">
-                <h2>🎨 Step 4: How Does Frost Create Meaning? (Literary Devices)</h2>
-
-                <p>Poets are craftspeople. Let's look at some of the tools Frost uses to create this poem's effect:</p>
-
-                <div class="example-analysis">
-                    <h4>1. Metaphor (Extended)</h4>
-                    <p><strong>What it is:</strong> The entire poem is a metaphor comparing roads to life choices</p>
-                    <p><strong>Effect:</strong> Makes an abstract idea (decision-making) concrete and visual</p>
-                </div>
-
-                <div class="example-analysis">
-                    <h4>2. Imagery</h4>
-                    <p><strong>Examples:</strong> "yellow wood," "grassy," "leaves no step had trodden black"</p>
-                    <p><strong>Effect:</strong> Creates a vivid picture; makes us feel like we're there</p>
-                </div>
-
-                <div class="example-analysis">
-                    <h4>3. Repetition</h4>
-                    <p><strong>Examples:</strong> "Two roads diverged" (first and last stanza); "I—I took" (emphasis)</p>
-                    <p><strong>Effect:</strong> Emphasizes key ideas; the repeated "I" suggests self-justification</p>
-                </div>
-
-                <div class="example-analysis">
-                    <h4>4. Rhyme Scheme</h4>
-                    <p><strong>Pattern:</strong> ABAAB in each stanza</p>
-                    <p><strong>Effect:</strong> Creates a musical quality; makes the poem memorable</p>
-                </div>
-
-                <div class="example-analysis">
-                    <h4>5. Tone</h4>
-                    <p><strong>What it is:</strong> The speaker's attitude—somewhat wistful, maybe ironic</p>
-                    <p><strong>Evidence:</strong> Words like "sorry," "sigh," the contradiction about which road was less traveled</p>
-                    <p><strong>Effect:</strong> Creates complexity; prevents simple interpretation</p>
-                </div>
-
-                <div class="support-box">
-                    <h3>🟢 Need More Support? Here's a Guided Analysis</h3>
-                    <p>Let's walk through one line together as an example:</p>
-                    <p style="margin-top: 10px;"><em>"And both that morning equally lay / In leaves no step had trodden black."</em></p>
-
-                    <div class="sentence-starters">
-                        <p><strong>What it literally means:</strong> Both paths had fallen leaves that hadn't been stepped on yet</p>
-                        <p><strong>What it suggests:</strong> Neither path had been traveled recently; both were equally fresh choices</p>
-                        <p><strong>Why it matters:</strong> This contradicts the speaker's later claim that one road was "less traveled by"—showing how we reshape our memories</p>
-                        <p><strong>Literary device:</strong> Imagery (visual detail) + Irony (contrast between this and later statement)</p>
-                    </div>
-
-                    <p style="margin-top: 15px;"><strong>💡 Your turn!</strong> Try this same analysis with another line from the poem.</p>
-                </div>
-            </div>
-
-            <!-- SECTION 5: PERSONAL CONNECTION -->
-            <div class="section">
-                <h2>🌉 Step 5: Connect It to Your Life</h2>
-
-                <p>The best part of literature is when it connects to <em>your</em> experience. This poem has resonated with millions of people because everyone faces choices.</p>
-
-                <div class="thinking-prompts">
-                    <h3>💭 Reflection Questions:</h3>
-                    <ul>
-                        <li>What's a "fork in the road" you've faced? (Choosing a school, a friend group, an activity, a belief?)</li>
-                        <li>Have you ever wondered "what if" about a choice you made?</li>
-                        <li>Do you think your choices define you, or do you define your choices?</li>
-                        <li>Have you ever told a story about your past that might not be 100% accurate, but felt true?</li>
-                    </ul>
-                </div>
-
-                <div class="reflection-space">
-                    <h3>✍️ Your Space to Think</h3>
-                    <p><strong>Optional Writing Prompt:</strong> Write about a choice you made. How did you make the decision? Looking back, how do you feel about it? Has your story about that choice changed over time?</p>
-                    <p style="margin-top: 15px; color: #666;"><em>This is for you—you don't have to share it unless you want to. Sometimes writing just for ourselves helps us understand our own thinking.</em></p>
-                </div>
-
-                <div class="kind-box">
-                    <p><strong>💙 Your Interpretation Matters</strong></p>
-                    <p>What this poem means to <em>you</em> is part of what makes it valuable. A 16-year-old thinking about college choices will read it differently than a 60-year-old looking back on their career. Both are valid. Your perspective is part of the conversation! 🗣️</p>
-                </div>
-            </div>
-
-            <!-- SECTION 6: DEMONSTRATE UNDERSTANDING -->
-            <div class="section">
-                <h2>🎯 Step 6: Show What You've Learned</h2>
-
-                <p>Time to pull it all together! Choose <strong>one</strong> of these options to demonstrate your understanding:</p>
-
-                <div class="choice-section">
-                    <div class="choice-card">
-                        <h3>🟢 Option 1: Guided Analysis</h3>
-                        <p><strong>Best if:</strong> You want clear structure and support</p>
-                        <p style="margin-top: 10px;"><strong>Task:</strong> Answer 5 specific questions with sentence starters provided</p>
-                        <p style="margin-top: 10px; color: #667eea;"><strong>Questions like:</strong> "What is the main metaphor in this poem?" with starter: "Frost compares _____ to _____ in order to show..."</p>
-                    </div>
-
-                    <div class="choice-card">
-                        <h3>🟡 Option 2: Literary Essay</h3>
-                        <p><strong>Best if:</strong> You enjoy writing and analysis</p>
-                        <p style="margin-top: 10px;"><strong>Task:</strong> Write a 2-3 paragraph essay analyzing what the poem means and how Frost creates that meaning</p>
-                        <p style="margin-top: 10px; color: #667eea;"><strong>Include:</strong> A clear thesis, evidence from the text, and analysis of at least 2 literary devices</p>
-                    </div>
-
-                    <div class="choice-card">
-                        <h3>🔴 Option 3: Creative Response</h3>
-                        <p><strong>Best if:</strong> You want to be creative</p>
-                        <p style="margin-top: 10px;"><strong>Task:</strong> Create a visual representation (drawing, diagram, comic) or write your own "fork in the road" poem, PLUS a 1-paragraph explanation of your interpretation</p>
-                        <p style="margin-top: 10px; color: #667eea;"><strong>Show:</strong> Your understanding of theme and personal connection</p>
-                    </div>
-                </div>
-
-                <div class="support-box">
-                    <h3>🟢 Sentence Starters for Option 1</h3>
-                    <p style="font-weight: bold;">Question 1: What is this poem really about?</p>
-                    <div class="sentence-starters">
-                        <p>• "This poem is about _____ because _____."</p>
-                        <p>• "Frost uses the image of two roads to represent _____."</p>
-                    </div>
-
-                    <p style="font-weight: bold; margin-top: 15px;">Question 2: What evidence supports your interpretation?</p>
-                    <div class="sentence-starters">
-                        <p>• "In line _____, Frost writes '_____,' which shows _____."</p>
-                        <p>• "The phrase '_____' suggests that _____."</p>
-                    </div>
-
-                    <p style="font-weight: bold; margin-top: 15px;">Question 3: What's the significance of the title?</p>
-                    <div class="sentence-starters">
-                        <p>• "The title focuses on 'The Road Not Taken' rather than the road chosen, which suggests _____."</p>
-                        <p>• "This title is significant because _____."</p>
-                    </div>
-
-                    <p style="font-weight: bold; margin-top: 15px;">Question 4: Identify and explain one literary device.</p>
-                    <div class="sentence-starters">
-                        <p>• "Frost uses _____ (device) when he writes '_____.' This creates the effect of _____."</p>
-                        <p>• "An example of _____ is '_____,' which helps the reader understand _____."</p>
-                    </div>
-
-                    <p style="font-weight: bold; margin-top: 15px;">Question 5: Personal connection.</p>
-                    <div class="sentence-starters">
-                        <p>• "This poem connects to my life because _____."</p>
-                        <p>• "The theme of _____ is relevant to people today because _____."</p>
-                    </div>
-                </div>
-
-                <div class="kind-box">
-                    <p><strong>💙 Remember:</strong> The goal isn't to impress anyone with fancy language. The goal is to show that you understand the poem and can explain your thinking. Clear, honest writing is always better than trying to sound sophisticated! 🌟</p>
-                </div>
-            </div>
-
-            <!-- EXTENSION -->
-            <div class="extension">
-                <h3>🔴 Want to Go Further? (Optional Extensions)</h3>
-                <p>If you loved this poem and want to explore more, try one of these:</p>
-
-                <p style="margin-top: 15px;"><strong>1. Research the Controversy</strong></p>
-                <p style="margin-left: 20px;">Look up articles about how Frost's poem is often misinterpreted. What did Frost himself say about it? Does the "intended meaning" matter more than how people interpret it?</p>
-
-                <p style="margin-top: 15px;"><strong>2. Compare Poems</strong></p>
-                <p style="margin-left: 20px;">Read another Frost poem like "Stopping by Woods on a Snowy Evening" or "Mending Wall." What themes appear in multiple poems? What's Frost's style?</p>
-
-                <p style="margin-top: 15px;"><strong>3. Modern Connection</strong></p>
-                <p style="margin-left: 20px;">Find a song, movie, or book that deals with similar themes (choice, regret, "what if"). Compare how different art forms explore the same idea.</p>
-
-                <p style="margin-top: 15px;"><strong>4. Write Your Own</strong></p>
-                <p style="margin-left: 20px;">Write a poem using an extended metaphor about a life experience. It doesn't have to rhyme! Focus on creating vivid imagery and a clear comparison.</p>
-            </div>
-
-            <!-- CLOSING -->
-            <div class="welcome">
-                <h2>🎉 You Did It!</h2>
-                <p>You've journeyed through one of America's most famous poems, from first impression to deep analysis to personal connection. That's exactly what skilled readers do! 📚</p>
-
-                <p style="margin-top: 15px;"><strong>What you accomplished today:</strong></p>
-                <ul style="margin-left: 30px; margin-top: 10px;">
-                    <li>✅ Read and understood a complex poem</li>
-                    <li>✅ Identified metaphor and other literary devices</li>
-                    <li>✅ Interpreted meaning and supported it with evidence</li>
-                    <li>✅ Connected literature to your own life</li>
-                </ul>
-
-                <p style="margin-top: 20px;"><strong>Keep this in mind:</strong> Every time you read a poem, you're in conversation with the poet, with other readers across time, and with yourself. Your interpretation is your contribution to that ongoing conversation. 💭</p>
-
-                <p style="margin-top: 15px; font-weight: bold; color: #667eea;">Great work! Keep reading, keep thinking, and keep exploring! 🌟</p>
-            </div>
-
-            <div class="kind-box" style="margin-top: 30px;">
-                <p><strong>📝 Questions or Thoughts?</strong></p>
-                <p>If anything was confusing, or if you had an interpretation that surprised you, or if you just want to discuss the poem more—reach out to your teacher! These conversations are what make literature come alive. Your teacher would love to hear your thoughts! 💬</p>
-            </div>
+        <!-- COMPLETION CELEBRATION -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 25px;" role="region" aria-labelledby="celebration-heading">
+            <h2 id="celebration-heading" style="margin: 0 0 15px 0; font-size: 2em;">🎉 You've Built Essential Skills!</h2>
+            <p style="font-size: 1.2em; margin: 0 0 20px 0; line-height: 1.8;">You now have a systematic approach to reading and analyzing poetry. These skills transfer to all texts—learning to read closely makes you a better reader, thinker, and writer across all genres.</p>
+            <p style="margin: 0; font-size: 1.1em; line-height: 1.8;">Keep reading, keep questioning, keep discovering new meanings. Great work today! 📚</p>
         </div>
+
     </div>
 </body>
 </html>
